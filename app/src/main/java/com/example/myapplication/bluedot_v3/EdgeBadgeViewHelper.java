@@ -257,7 +257,7 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     @Override
     public int getBadgeWidth() {
         float radios = getBadgeCircleRadius();
-        return (int) (mHorizontalBadgePadding * 2 + mGravityOffsetX * 2 + Math.max(Math.max(mBadgeTextRect.width(), mBadgeTextRect.height()),radios));
+        return (int) (mHorizontalBadgePadding * 2 + mGravityOffsetX * 2 + Math.max(Math.max(mBadgeTextRect.width(), mBadgeTextRect.height()), radios));
     }
 
     @Override
@@ -269,7 +269,7 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     public void onDraw(@NonNull Canvas canvas) {
         if (!iBadge.isEnabled()) return;
         String newItemIndicatorId = iBadge.getNewItemIndicatorId();
-        Log.d("onDraw-indicatorId:",newItemIndicatorId);
+        Log.d("onDraw-indicatorId:", newItemIndicatorId);
 //        if (!NewItemIndicatorManager.getInstance().shouldShowBadgeById(newItemIndicatorId)) return;
 
         resetPaints();
@@ -295,10 +295,10 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
         mBadgeNumber = badgeNum;
         if (mBadgeNumber < 0) {
             mBadgeText = "";
-        }else if (mBadgeNumber > 0 && mBadgeNumber <= 99) {
-            mBadgeText = String.valueOf(mBadgeNumber);
         } else if (mBadgeNumber == 0) {
             mBadgeText = null;
+        } else {
+            mBadgeText = String.valueOf(mBadgeNumber);
         }
         measureText();
         iBadge.postInvalidate();

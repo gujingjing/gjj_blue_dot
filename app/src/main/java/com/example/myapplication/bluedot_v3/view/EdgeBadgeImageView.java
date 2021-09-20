@@ -51,6 +51,7 @@ public class EdgeBadgeImageView extends ImageView implements IEdgeBadgeView {
     @Override
     public void setOnClickListener(@Nullable OnClickListener l) {
         super.setOnClickListener(v -> {
+            l.onClick(v);
             onBadgeClick();
         });
     }

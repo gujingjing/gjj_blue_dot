@@ -59,6 +59,7 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView {
     @Override
     public void setOnClickListener(@Nullable OnClickListener l) {
         super.setOnClickListener(v -> {
+            l.onClick(v);
             onBadgeClick();
         });
     }
@@ -66,6 +67,6 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView {
     @Override
     public void onBadgeClick() {
         NewItemIndicatorManager.getInstance().onClickedById(getNewItemIndicatorId());
-        postInvalidate();
+        requestLayout();
     }
 }

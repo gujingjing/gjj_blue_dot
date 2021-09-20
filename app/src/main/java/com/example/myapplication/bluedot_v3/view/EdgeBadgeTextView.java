@@ -52,6 +52,7 @@ public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView {
     @Override
     public void setOnClickListener(@Nullable OnClickListener l) {
         super.setOnClickListener(v -> {
+            l.onClick(v);
             onBadgeClick();
         });
     }
