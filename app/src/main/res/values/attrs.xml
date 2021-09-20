@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BadgeViewUtil">
+        <attr name="badge_padding_top_1" format="dimension" />
+        <attr name="badge_padding_right_1" format="dimension" />
+        <attr name="badge_count" format="integer" />
+        <attr name="badge_none_show" format="boolean" />
+        <attr name="badge_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="badge_view">
+        <!-- 徽章背景色 -->
+        <attr name="badge_background_color" format="reference|color" />
+        <!--    徽章背景    -->
+        <attr name="badge_background" format="reference" />
+        <!-- 徽章文本的颜色 -->
+        <attr name="badge_text_color" format="reference|color" />
+        <!-- 徽章文本字体大小 -->
+        <attr name="badge_text_size" format="reference|dimension" />
+        <attr name="badge_text" format="reference|string" />
+        <attr name="badge_view_id" format="reference|string" />
+
+        <attr name="badge_horizontal_padding" format="reference|dimension" />
+        <attr name="badge_vertical_padding" format="reference|dimension" />
+
+        <attr name="badge_horizontal_margin" format="reference|dimension" />
+        <attr name="badge_vertical_margin" format="reference|dimension" />
+        <attr name="badge_red_dot_radio" format="reference|dimension" />
+        <attr name="badge_auto_update_attach_view_size" format="boolean" />
+
+        <!-- 徽章在宿主控件中的位置 -->
+        <attr name="badge_gravity" format="enum">
+            <enum name="top_start" value="0x00" />
+            <enum name="top_center" value="0x01" />
+            <enum name="top_end" value="0x02" />
+            <enum name="center_start" value="0x10" />
+            <enum name="center_center" value="0x11" />
+            <enum name="center_end" value="0x12" />
+            <enum name="bottom_start" value="0x20" />
+            <enum name="bottom_center" value="0x21" />
+            <enum name="bottom_end" value="0x22" />
+        </attr>
+
+    </declare-styleable>
+
+</resources>
