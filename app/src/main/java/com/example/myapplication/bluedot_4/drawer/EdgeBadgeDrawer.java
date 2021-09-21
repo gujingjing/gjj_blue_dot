@@ -19,7 +19,7 @@ import com.example.myapplication.bludot_v1.DisplayUtil;
 import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
 import com.example.myapplication.bluedot_4.IViewController;
 
-public class DefaultEdgeBadgeDrawer implements IEdgeBadgeDrawer {
+public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private int mColorBadgeText;
     private float mBadgeTextSize;
 
@@ -45,7 +45,7 @@ public class DefaultEdgeBadgeDrawer implements IEdgeBadgeDrawer {
     protected IViewController mBadgeViewController;
     private String TAG = "BadgeViewHelperV2";
 
-    public DefaultEdgeBadgeDrawer(IViewController viewController) {
+    public EdgeBadgeDrawer(IViewController viewController) {
         this.mBadgeViewController = viewController;
         init(mBadgeViewController.getContext());
     }

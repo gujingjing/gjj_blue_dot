@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.myapplication.bluedot_4.drawer.AutoSizeEdgeBadgeDrawer;
+import com.example.myapplication.bluedot_4.drawer.EdgeAutoSizeBadgeDrawer;
 import com.example.myapplication.bluedot_4.EdgeBadgeViewHelper;
 import com.example.myapplication.bluedot_4.drawer.IEdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.IEdgeBadgeView;
@@ -27,7 +27,7 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IViewControll
 
     public EdgeBadgeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        drawer = new AutoSizeEdgeBadgeDrawer(this);
+        drawer = new EdgeAutoSizeBadgeDrawer(this);
         mEdgeBadgeViewHelper = new EdgeBadgeViewHelper(drawer);
         mEdgeBadgeViewHelper.init(context, attrs, defStyleAttr);
     }

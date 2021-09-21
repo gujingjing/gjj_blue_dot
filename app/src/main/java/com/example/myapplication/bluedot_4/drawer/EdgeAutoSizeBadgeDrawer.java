@@ -2,9 +2,9 @@ package com.example.myapplication.bluedot_4.drawer;
 
 import com.example.myapplication.bluedot_4.IViewController;
 
-public class AutoSizeEdgeBadgeDrawer extends DefaultEdgeBadgeDrawer {
+public class EdgeAutoSizeBadgeDrawer extends EdgeBadgeDrawer {
 
-    public AutoSizeEdgeBadgeDrawer(IViewController viewController) {
+    public EdgeAutoSizeBadgeDrawer(IViewController viewController) {
         super(viewController);
     }
 

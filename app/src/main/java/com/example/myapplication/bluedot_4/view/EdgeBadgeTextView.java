@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.example.myapplication.bluedot_4.drawer.DefaultEdgeBadgeDrawer;
+import com.example.myapplication.bluedot_4.drawer.EdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.EdgeBadgeViewHelper;
 import com.example.myapplication.bluedot_4.drawer.IEdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.IEdgeBadgeView;
@@ -27,7 +27,7 @@ public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView, IView
 
     public EdgeBadgeTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        drawer = new DefaultEdgeBadgeDrawer(this);
+        drawer = new EdgeBadgeDrawer(this);
         mEdgeBadgeViewHelper = new EdgeBadgeViewHelper(drawer);
         mEdgeBadgeViewHelper.init(context, attrs, defStyleAttr);
     }
