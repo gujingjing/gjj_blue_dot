@@ -14,15 +14,13 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.myapplication.R;
 import com.example.myapplication.bludot_v1.DisplayUtil;
-import com.example.myapplication.bluedot.NewItemIndicatorManager;
+import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
+import com.example.myapplication.bluedot_4.IEdgeBadgeView;
 
-public class EdgeBadgeViewHelper implements IEdgeBadgeController {
+public class EdgeBadgeViewHelper1 implements IEdgeBadgeController {
     private int mColorBadgeText;
     private float mBadgeTextSize;
 
@@ -48,11 +46,9 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     private boolean mBadgeShow = true;
 
     private IEdgeBadgeView iBadge;
-    private String TAG = "BadgeViewHelperV2";
 
-    public EdgeBadgeViewHelper(IEdgeBadgeView iBadge, AttributeSet attrs) {
+    public EdgeBadgeViewHelper1(IEdgeBadgeView iBadge, AttributeSet attrs) {
         this.iBadge = iBadge;
-        init(iBadge.getContext(), attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -77,11 +73,11 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     }
 
     public void onDraw(@NonNull Canvas canvas) {
-        if (!iBadge.isEnabled()) return;
+//        if (!iBadge.isEnabled()) return;
         if (!mBadgeShow) return;
 
-        String newItemIndicatorId = iBadge.getNewItemIndicatorId();
-        Log.d("onDraw-indicatorId:", newItemIndicatorId);
+//        String newItemIndicatorId = iBadge.getNewItemIndicatorId();
+//        Log.d("onDraw-indicatorId:", newItemIndicatorId);
 //        if (!NewItemIndicatorManager.getInstance().shouldShowBadgeById(newItemIndicatorId)) return;
 
         resetPaints();
@@ -114,7 +110,7 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
             mBadgeText = String.valueOf(badgeNum);
         }
         measureText();
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
@@ -122,22 +118,22 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     public IEdgeBadgeController setBadgeText(String badgeText) {
         mBadgeText = badgeText;
         measureText();
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgeTextColor(int color) {
         mColorBadgeText = color;
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgeTextSize(float size, boolean isSpValue) {
-        mBadgeTextSize = isSpValue ? DisplayUtil.dp2px(iBadge.getContext(), size) : size;
-        measureText();
-        iBadge.updateBadgeView();
+//        mBadgeTextSize = isSpValue ? DisplayUtil.dp2px(iBadge.getContext(), size) : size;
+//        measureText();
+//        iBadge.updateBadgeView();
         return this;
     }
 
@@ -149,53 +145,53 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
         } else {
             mBadgeTextPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgeBackground(Drawable drawable) {
         mDrawableBackground = drawable;
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgePadding(float padding, boolean isDpValue) {
-        float badgePadding = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), padding) : padding;
-        mHorizontalBadgePadding = badgePadding;
-        mVerticalBadgePadding = badgePadding;
-        iBadge.updateBadgeView();
+//        float badgePadding = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), padding) : padding;
+//        mHorizontalBadgePadding = badgePadding;
+//        mVerticalBadgePadding = badgePadding;
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgeVisibility(boolean badgeShow) {
         mBadgeShow = badgeShow;
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setBadgeGravity(@EdgeBadgeGravity int gravity) {
         mBadgeGravity = gravity;
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public IEdgeBadgeController setGravityOffset(float offsetX, float offsetY, boolean isDpValue) {
-        float x = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), offsetX) : offsetX;
-        float y = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), offsetY) : offsetY;
-        mGravityOffsetX = x;
-        mGravityOffsetY = y;
-        iBadge.updateBadgeView();
+//        float x = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), offsetX) : offsetX;
+//        float y = isDpValue ? DisplayUtil.dp2px(iBadge.getContext(), offsetY) : offsetY;
+//        mGravityOffsetX = x;
+//        mGravityOffsetY = y;
+//        iBadge.updateBadgeView();
         return this;
     }
 
     @Override
     public void badgeInvalidate() {
-        iBadge.updateBadgeView();
+//        iBadge.updateBadgeView();
     }
 
     private void resetPaints() {
@@ -238,8 +234,8 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
     }
 
     private void findBadgeCenter() {
-        int mWidth = iBadge.getWidth();
-        int mHeight = iBadge.getHeight();
+        int mWidth = 0;
+        int mHeight = 0;
         float rectWidth = Math.max(mBadgeTextRect.height(), mBadgeTextRect.width());
         float rectHeight = mBadgeTextRect.height();
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.bluedot_v3;
+package com.example.myapplication.bluedot_4;
 
 import android.support.annotation.IntDef;
 

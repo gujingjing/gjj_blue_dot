@@ -3,6 +3,8 @@ package com.example.myapplication.bluedot_v3;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 
+import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
+
 /**
  *
  */

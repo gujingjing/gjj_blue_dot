@@ -19,6 +19,7 @@
         <attr name="badge_text_size" format="reference|dimension" />
         <attr name="badge_text" format="reference|string" />
         <attr name="badge_view_id" format="reference|string" />
+        <attr name="badge_view_visible" format="boolean" />
 
         <attr name="badge_horizontal_padding" format="reference|dimension" />
         <attr name="badge_vertical_padding" format="reference|dimension" />

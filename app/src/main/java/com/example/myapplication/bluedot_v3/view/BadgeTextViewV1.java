@@ -7,12 +7,12 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 import com.example.myapplication.bluedot_v3.BadgeViewHelperV1;
-import com.example.myapplication.bluedot_v3.EdgeBadgeViewHelper;
+import com.example.myapplication.bluedot_v3.EdgeBadgeViewHelper1;
 import com.example.myapplication.bluedot_v3.IBadgeV1;
 
 public class BadgeTextViewV1 extends TextView implements IBadgeV1 {
 
-    private EdgeBadgeViewHelper mBadgeViewHelper;
+    private EdgeBadgeViewHelper1 mBadgeViewHelper;
 
     public BadgeTextViewV1(Context context) {
         this(context, null);

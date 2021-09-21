@@ -14,7 +14,7 @@
         android:layout_margin="10dp"
         android:weightSum="4">
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeImageView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -35,7 +35,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeImageView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -55,7 +55,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeImageView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -75,7 +75,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeImageView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -102,7 +102,7 @@
         android:layout_margin="10dp"
         android:weightSum="4">
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -122,7 +122,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -141,7 +141,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -160,7 +160,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -187,7 +187,7 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -207,7 +207,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -226,7 +226,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -245,7 +245,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -265,7 +265,7 @@
 
     </LinearLayout>
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/text_new_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
         app:badge_vertical_margin="2dp"
         app:badge_vertical_padding="2dp" />
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/text_number_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -304,7 +304,7 @@
         app:badge_vertical_margin="2dp"
         app:badge_vertical_padding="2dp" />
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/text_dot_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -341,7 +341,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -357,7 +357,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -373,7 +373,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -387,7 +387,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -401,7 +401,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -412,7 +412,7 @@
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size" />
 
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -428,7 +428,7 @@
             app:badge_vertical_margin="2dp"
             app:badge_vertical_padding="2dp" />
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -439,7 +439,7 @@
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -450,7 +450,7 @@
             app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
-        <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+        <com.example.myapplication.bluedot_4.view.EdgeBadgeView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -459,7 +459,7 @@
             android:textColor="@android:color/black" />
     </LinearLayout>
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/badge_test_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -481,7 +481,7 @@
         app:badge_vertical_margin="2dp"
         app:badge_vertical_padding="2dp" />
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/badge_test_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -498,7 +498,7 @@
         app:badge_text_color="@color/new_item_indication_dot_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/badge_test_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -519,7 +519,7 @@
         app:badge_vertical_padding="2dp" />
 
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeView
         android:id="@+id/text_add_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -547,7 +547,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeView
         android:id="@+id/number_add_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -558,7 +558,7 @@
         app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
-    <com.example.myapplication.bluedot_v3.view.EdgeBadgeView
+    <com.example.myapplication.bluedot_4.view.EdgeBadgeView
         android:id="@+id/dot_to_number_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
