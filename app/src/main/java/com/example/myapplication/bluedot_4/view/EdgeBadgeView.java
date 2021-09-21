@@ -8,11 +8,11 @@ import android.view.View;
 
 import com.example.myapplication.bluedot_4.drawer.EdgeAutoSizeBadgeDrawer;
 import com.example.myapplication.bluedot_4.EdgeBadgeViewHelper;
-import com.example.myapplication.bluedot_4.drawer.IEdgeBadgeDrawer;
+import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.IEdgeBadgeView;
-import com.example.myapplication.bluedot_4.IViewController;
+import com.example.myapplication.bluedot_4.IAttachViewController;
 
-public class EdgeBadgeView extends View implements IEdgeBadgeView, IViewController {
+public class EdgeBadgeView extends View implements IEdgeBadgeView, IAttachViewController {
 
     private EdgeBadgeViewHelper mEdgeBadgeViewHelper;
     private IEdgeBadgeDrawer drawer;
@@ -35,7 +35,7 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IViewControll
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int[] info = mEdgeBadgeViewHelper.getBadgeViewInfo();
+        int[] info = mEdgeBadgeViewHelper.getBadgeViewSizeInfo();
         setMeasuredDimension(info[0], info[1]);
     }
 

@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 
 import com.example.myapplication.R;
-import com.example.myapplication.bluedot_4.drawer.IEdgeBadgeDrawer;
 
 public class EdgeBadgeViewHelper {
     private IEdgeBadgeDrawer drawer;
@@ -33,7 +32,12 @@ public class EdgeBadgeViewHelper {
         drawer.onDraw(canvas);
     }
 
-    public int[] getBadgeViewInfo() {
+    /**
+     * Return badgeView draw size info
+     *      first:  width
+     *      second: height
+     */
+    public int[] getBadgeViewSizeInfo() {
         return new int[]{drawer.getBadgeWidth(), drawer.getBadgeHeight()};
     }
 
@@ -52,6 +56,7 @@ public class EdgeBadgeViewHelper {
     }
 
     private boolean getBadgeViewVisibility() {
+        //TODO use badge id
         return visible;
     }
 

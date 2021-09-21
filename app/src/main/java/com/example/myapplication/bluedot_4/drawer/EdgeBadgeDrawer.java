@@ -17,7 +17,8 @@ import android.text.TextUtils;
 import com.example.myapplication.R;
 import com.example.myapplication.bludot_v1.DisplayUtil;
 import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
-import com.example.myapplication.bluedot_4.IViewController;
+import com.example.myapplication.bluedot_4.IAttachViewController;
+import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 
 public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private int mColorBadgeText;
@@ -42,10 +43,10 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private TextPaint mBadgeTextPaint;
     private Paint mBadgeBackgroundPaint;
 
-    protected IViewController mBadgeViewController;
+    protected IAttachViewController mBadgeViewController;
     private String TAG = "BadgeViewHelperV2";
 
-    public EdgeBadgeDrawer(IViewController viewController) {
+    public EdgeBadgeDrawer(IAttachViewController viewController) {
         this.mBadgeViewController = viewController;
         init(mBadgeViewController.getContext());
     }
@@ -90,9 +91,8 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer updateBadgeView() {
+    public void updateBadgeView() {
         mBadgeViewController.postInvalidate();
-        return this;
     }
 
     @Override

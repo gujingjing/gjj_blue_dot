@@ -2,7 +2,10 @@ package com.example.myapplication.bluedot_4;
 
 import android.content.Context;
 
-public interface IViewController {
+/**
+ * Badge attach view property controller
+ */
+public interface IAttachViewController {
     int getWidth();
 
     int getHeight();

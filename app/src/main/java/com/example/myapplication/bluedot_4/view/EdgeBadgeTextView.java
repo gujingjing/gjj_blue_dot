@@ -8,11 +8,11 @@ import android.widget.TextView;
 
 import com.example.myapplication.bluedot_4.drawer.EdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.EdgeBadgeViewHelper;
-import com.example.myapplication.bluedot_4.drawer.IEdgeBadgeDrawer;
+import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.IEdgeBadgeView;
-import com.example.myapplication.bluedot_4.IViewController;
+import com.example.myapplication.bluedot_4.IAttachViewController;
 
-public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView, IViewController {
+public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView, IAttachViewController {
 
     private EdgeBadgeViewHelper mEdgeBadgeViewHelper;
     private IEdgeBadgeDrawer drawer;
