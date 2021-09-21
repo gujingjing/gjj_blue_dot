@@ -62,7 +62,6 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeController {
         mBadgeTextPaint = new TextPaint();
         mBadgeTextPaint.setAntiAlias(true);
         mBadgeTextPaint.setSubpixelText(true);
-        mBadgeTextPaint.setFakeBoldText(true);
         mBadgeTextPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         mBadgeBackgroundPaint = new Paint();
         mBadgeBackgroundPaint.setAntiAlias(true);
