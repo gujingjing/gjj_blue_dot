@@ -36,6 +36,11 @@ public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView {
     }
 
     @Override
+    public void updateBadgeView() {
+        postInvalidate();
+    }
+
+    @Override
     public IEdgeBadgeController getBadgeController() {
         return mBadgeViewHelper;
     }
@@ -60,6 +65,6 @@ public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView {
     @Override
     public void onBadgeClick() {
         NewItemIndicatorManager.getInstance().onClickedById(getNewItemIndicatorId());
-        postInvalidate();
+        updateBadgeView();
     }
 }

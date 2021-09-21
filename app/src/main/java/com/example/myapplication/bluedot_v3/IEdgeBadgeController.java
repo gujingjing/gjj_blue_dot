@@ -15,8 +15,6 @@ public interface IEdgeBadgeController {
 
     int getBadgeHeight();
 
-    IEdgeBadgeController setAutoUpdateAttachViewSize(boolean autoUpdate);
-
     IEdgeBadgeController setBadgeNumber(int badgeNum);
 
     IEdgeBadgeController setBadgeText(String badgeText);
@@ -30,6 +28,8 @@ public interface IEdgeBadgeController {
     IEdgeBadgeController setBadgeBackground(Drawable drawable);
 
     IEdgeBadgeController setBadgePadding(float padding, boolean isDpValue);
+
+    IEdgeBadgeController setBadgeVisibility(boolean badgeShow);
 
     IEdgeBadgeController setBadgeGravity(@EdgeBadgeGravity int gravity);
 

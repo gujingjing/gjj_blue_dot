@@ -12,13 +12,11 @@ public interface IEdgeBadgeView {
 
     boolean isEnabled();
 
-    void postInvalidate();
+    void updateBadgeView();
 
     Context getContext();
 
     IEdgeBadgeController getBadgeController();
-
-    ViewGroup.LayoutParams getLayoutParams();
 
     String getNewItemIndicatorId();
 

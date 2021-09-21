@@ -26,7 +26,6 @@
         <attr name="badge_horizontal_margin" format="reference|dimension" />
         <attr name="badge_vertical_margin" format="reference|dimension" />
         <attr name="badge_red_dot_radio" format="reference|dimension" />
-        <attr name="badge_auto_update_attach_view_size" format="boolean" />
 
         <!-- 徽章在宿主控件中的位置 -->
         <attr name="badge_gravity" format="enum">

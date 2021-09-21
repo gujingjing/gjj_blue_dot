@@ -265,6 +265,63 @@
 
     </LinearLayout>
 
+    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        android:id="@+id/text_new_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_marginTop="10dp"
+        android:background="#CAEACA"
+        android:padding="10dp"
+        android:text="top  new"
+        android:textColor="@android:color/black"
+        app:badge_background="@drawable/frame_63123"
+        app:badge_gravity="center_end"
+        app:badge_horizontal_margin="2dp"
+        app:badge_horizontal_padding="10dp"
+        app:badge_text="New"
+        app:badge_text_color="@color/new_item_indication_dot_text_color"
+        app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
+        app:badge_vertical_margin="2dp"
+        app:badge_vertical_padding="2dp" />
+
+    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        android:id="@+id/text_number_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_marginTop="10dp"
+        android:background="#CAEACA"
+        android:text="number test"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        app:badge_gravity="center_end"
+        app:badge_horizontal_margin="2dp"
+        app:badge_horizontal_padding="4dp"
+        app:badge_text="1"
+        app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
+        app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
+        app:badge_vertical_margin="2dp"
+        app:badge_vertical_padding="2dp" />
+
+    <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
+        android:id="@+id/text_dot_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_marginTop="10dp"
+        android:background="#CAEACA"
+        android:padding="10dp"
+        android:text="top  dot"
+        android:textColor="@android:color/black"
+        app:badge_gravity="center_end"
+        app:badge_horizontal_margin="12dp"
+        app:badge_horizontal_padding="4dp"
+        app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
+        app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
+        app:badge_vertical_margin="4dp"
+        app:badge_vertical_padding="2dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -274,7 +331,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_background="@drawable/frame_63123"
             app:badge_gravity="center_center"
             app:badge_horizontal_margin="10dp"
@@ -292,7 +348,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_gravity="top_end"
             app:badge_horizontal_margin="12dp"
             app:badge_horizontal_padding="4dp"
@@ -309,7 +364,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_gravity="top_end"
             app:badge_horizontal_margin="2dp"
             app:badge_horizontal_padding="10dp"
@@ -325,8 +379,7 @@
             android:layout_margin="10dp"
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
-            android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true" />
+            android:textColor="@android:color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -338,7 +391,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_background="@drawable/frame_63123"
             app:badge_gravity="center_center"
             app:badge_horizontal_margin="10dp"
@@ -353,7 +405,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_background="@drawable/frame_63123"
             app:badge_gravity="center_center"
             app:badge_text="New"
@@ -368,7 +419,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_gravity="top_end"
             app:badge_horizontal_margin="12dp"
             app:badge_horizontal_padding="4dp"
@@ -384,7 +434,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_text="1"
             app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
@@ -397,7 +446,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true"
             app:badge_text="24"
             app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
@@ -408,8 +456,7 @@
             android:layout_margin="10dp"
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
-            android:textColor="@android:color/black"
-            app:badge_auto_update_attach_view_size="true" />
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
     <com.example.myapplication.bluedot_v3.view.EdgeBadgeTextView
@@ -477,7 +524,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:badge_auto_update_attach_view_size="true"
         app:badge_background="@drawable/frame_63123"
         app:badge_gravity="center_center"
         app:badge_horizontal_margin="10dp"
@@ -508,7 +554,6 @@
         android:layout_marginTop="10dp"
         android:background="#CAEACA"
         android:textColor="@android:color/black"
-        app:badge_auto_update_attach_view_size="true"
         app:badge_text="1"
         app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
@@ -520,8 +565,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:background="#CAEACA"
-        android:textColor="@android:color/black"
-        app:badge_auto_update_attach_view_size="true" />
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/btn_test_asset"

@@ -27,13 +27,17 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView {
     public EdgeBadgeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBadgeViewHelper = new EdgeBadgeViewHelper(this, attrs);
-        mBadgeViewHelper.setAutoUpdateAttachViewSize(false);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mBadgeViewHelper.onDraw(canvas);
+    }
+
+    @Override
+    public void updateBadgeView() {
+        requestLayout();
     }
 
     @Override
@@ -67,6 +71,6 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView {
     @Override
     public void onBadgeClick() {
         NewItemIndicatorManager.getInstance().onClickedById(getNewItemIndicatorId());
-        requestLayout();
+        updateBadgeView();
     }
 }
