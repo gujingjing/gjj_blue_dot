@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 
 public interface IEdgeBadgeDrawer {
 
@@ -11,7 +12,7 @@ public interface IEdgeBadgeDrawer {
 
     void updateBadgeView();
 
-    void initCustomAttr(Context context, int attr, TypedArray typedArray);
+    void initCustomAttrs(Context context, AttributeSet attrs, int defStyleAttr);
 
     int getBadgeWidth();
 
@@ -29,9 +30,9 @@ public interface IEdgeBadgeDrawer {
 
     IEdgeBadgeDrawer setBadgeBackground(Drawable drawable);
 
-    IEdgeBadgeDrawer setBadgePadding(float padding);
+    IEdgeBadgeDrawer setBadgePadding(int padding);
 
     IEdgeBadgeDrawer setBadgeGravity(@EdgeBadgeGravity int gravity);
 
-    IEdgeBadgeDrawer setMargin(float horizontalMargin, float verticalMargin);
+    IEdgeBadgeDrawer setMargin(int horizontalMargin, int verticalMargin);
 }

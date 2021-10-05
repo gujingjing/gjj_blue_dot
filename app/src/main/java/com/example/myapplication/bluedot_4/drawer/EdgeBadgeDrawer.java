@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.util.AttributeSet;
 
 import com.example.myapplication.R;
 import com.example.myapplication.bludot_v1.DisplayUtil;
@@ -28,14 +29,14 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private Drawable mDrawableBackground;
     private int mColorBackground;
 
-    private float mHorizontalBadgePadding;
-    private float mVerticalBadgePadding;
+    private int mHorizontalBadgePadding;
+    private int mVerticalBadgePadding;
 
-    private String mBadgeText = "";
+    private String mBadgeText;
     private int mBadgeGravity = EdgeBadgeGravity.TOP_END;
     private int mBadgeViewType = EdgeBadgeViewType.TYPE_DOT;
-    private float mGravityOffsetX;
-    private float mGravityOffsetY;
+    private int mGravityOffsetX;
+    private int mGravityOffsetY;
     private int mRedDotRadios;
 
     private RectF mBadgeTextRect;
@@ -69,12 +70,12 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
         mHorizontalBadgePadding = DisplayUtil.dp2px(context, 4);
         mVerticalBadgePadding = DisplayUtil.dp2px(context, 2);
         mRedDotRadios = DisplayUtil.dp2px(context, 4);
-        measureText();
     }
 
     public void onDraw(@NonNull Canvas canvas) {
         if (!mBadgeViewController.isEnabled()) return;
         resetPaints();
+        measureText();
         findBadgeCenter();
         if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
             drawDot(canvas, mBadgeCenter, getBadgeCircleRadius());
@@ -110,7 +111,6 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     @Override
     public IEdgeBadgeDrawer setBadgeViewType(int badgeViewType) {
         mBadgeViewType = badgeViewType;
-        measureText();
         updateBadgeView();
         return this;
     }
@@ -123,7 +123,6 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     @Override
     public IEdgeBadgeDrawer setBadgeText(String badgeText) {
         mBadgeText = badgeText;
-        measureText();
         updateBadgeView();
         return this;
     }
@@ -138,7 +137,6 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     @Override
     public IEdgeBadgeDrawer setBadgeTextSize(float size) {
         mBadgeTextSize = size;
-        measureText();
         updateBadgeView();
         return this;
     }
@@ -163,7 +161,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer setBadgePadding(float padding) {
+    public IEdgeBadgeDrawer setBadgePadding(int padding) {
         mHorizontalBadgePadding = padding;
         mVerticalBadgePadding = padding;
         updateBadgeView();
@@ -178,7 +176,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer setMargin(float horizontalMargin, float verticalMargin) {
+    public IEdgeBadgeDrawer setMargin(int horizontalMargin, int verticalMargin) {
         mGravityOffsetX = horizontalMargin;
         mGravityOffsetY = verticalMargin;
         updateBadgeView();
@@ -270,35 +268,29 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public void initCustomAttr(Context context, int attr, TypedArray typedArray) {
-        if (attr == R.styleable.badge_view_badge_background_color) {
-            mColorBackground = typedArray.getColor(attr, mColorBackground);
-        } else if (attr == R.styleable.badge_view_badge_background) {
-            int badgeBackSource = typedArray.getResourceId(attr, -1);
-            if (badgeBackSource != -1) {
-                mDrawableBackground = context.getResources().getDrawable(badgeBackSource);
-            }
-        } else if (attr == R.styleable.badge_view_badge_text_color) {
-            mColorBadgeText = typedArray.getColor(attr, mColorBadgeText);
-        } else if (attr == R.styleable.badge_view_badge_text_size) {
-            mBadgeTextSize = typedArray.getDimensionPixelSize(attr, (int) mBadgeTextSize);
-        } else if (attr == R.styleable.badge_view_badge_horizontal_padding) {
-            mHorizontalBadgePadding = typedArray.getDimensionPixelSize(attr, 0);
-        } else if (attr == R.styleable.badge_view_badge_vertical_padding) {
-            mVerticalBadgePadding = typedArray.getDimensionPixelSize(attr, 0);
-        } else if (attr == R.styleable.badge_view_badge_horizontal_margin) {
-            mGravityOffsetX = typedArray.getDimensionPixelSize(attr, 0);
-        } else if (attr == R.styleable.badge_view_badge_vertical_margin) {
-            mGravityOffsetY = typedArray.getDimensionPixelSize(attr, 0);
-        } else if (attr == R.styleable.badge_view_badge_gravity) {
-            mBadgeGravity = typedArray.getInt(attr, mBadgeGravity);
-        } else if (attr == R.styleable.badge_view_badge_text) {
-            mBadgeText = typedArray.getString(attr);
-        } else if (attr == R.styleable.badge_view_badge_red_dot_radio) {
-            mRedDotRadios = typedArray.getDimensionPixelSize(attr, mRedDotRadios);
-        } else if (attr == R.styleable.badge_view_badge_type) {
-            mBadgeViewType = typedArray.getInt(attr, mBadgeViewType);
+    public void initCustomAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.badge_view);
+        int colorBackground = typedArray.getColor(R.styleable.badge_view_badge_background_color, -1);
+        if (colorBackground != -1) {
+            mColorBackground = colorBackground;
         }
+        int badgeBackSource = typedArray.getResourceId(R.styleable.badge_view_badge_background, -1);
+        if (badgeBackSource != -1) {
+            mDrawableBackground = context.getResources().getDrawable(badgeBackSource);
+        }
+        mColorBadgeText = typedArray.getColor(R.styleable.badge_view_badge_text_color, mColorBadgeText);
+        mBadgeTextSize = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_text_size, (int) mBadgeTextSize);
+        mHorizontalBadgePadding = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_horizontal_padding, mHorizontalBadgePadding);
+        mVerticalBadgePadding = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_vertical_padding, mVerticalBadgePadding);
+        mGravityOffsetX = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_horizontal_margin, mGravityOffsetX);
+        mGravityOffsetY = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_vertical_margin, mGravityOffsetY);
+        mBadgeGravity = typedArray.getInt(R.styleable.badge_view_badge_gravity, mBadgeGravity);
+        mBadgeText = typedArray.getString(R.styleable.badge_view_badge_text);
+        mRedDotRadios = typedArray.getDimensionPixelSize(R.styleable.badge_view_badge_red_dot_radio, mRedDotRadios);
+        mBadgeViewType = typedArray.getInt(R.styleable.badge_view_badge_type, mBadgeViewType);
+
+        typedArray.recycle();
+
         measureText();
     }
 
@@ -318,7 +310,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
         if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
             mBadgeTextRect.right = mRedDotRadios;
             mBadgeTextRect.bottom = mRedDotRadios;
-        } else {
+        } else if (mBadgeText != null) {
             mBadgeTextPaint.setTextSize(mBadgeTextSize);
             mBadgeTextRect.right = mBadgeTextPaint.measureText(mBadgeText);
             mBadgeTextFontMetrics = mBadgeTextPaint.getFontMetrics();
@@ -329,7 +321,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private float getBadgeCircleRadius() {
         if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
             return mRedDotRadios;
-        } else if (mBadgeText.length() == 1) {
+        } else if (TextUtils.isEmpty(mBadgeText) || mBadgeText.length() == 1) {
             return mBadgeTextRect.height() > mBadgeTextRect.width() ?
                     mBadgeTextRect.height() / 2f + mVerticalBadgePadding * 0.5f :
                     mBadgeTextRect.width() / 2f + mHorizontalBadgePadding * 0.5f;

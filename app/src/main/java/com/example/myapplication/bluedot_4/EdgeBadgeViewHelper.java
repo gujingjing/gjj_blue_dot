@@ -22,11 +22,10 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeView {
 
     public void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.badge_view);
-        final int N = typedArray.getIndexCount();
-        for (int i = 0; i < N; i++) {
-            initCustomAttr(context, typedArray.getIndex(i), typedArray);
-        }
+        visible = typedArray.getBoolean(R.styleable.badge_view_badge_view_visible, visible);
         typedArray.recycle();
+
+        drawer.initCustomAttrs(context, attrs, defStyleAttr);
     }
 
     public void onDraw(Canvas canvas) {
@@ -41,13 +40,6 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeView {
      */
     public int[] getBadgeViewSizeInfo() {
         return new int[]{drawer.getBadgeWidth(), drawer.getBadgeHeight()};
-    }
-
-    private void initCustomAttr(Context context, int attr, TypedArray typedArray) {
-        if (attr == R.styleable.badge_view_badge_view_visible) {
-            visible = typedArray.getBoolean(attr, visible);
-        }
-        drawer.initCustomAttr(context, attr, typedArray);
     }
 
     @Override
@@ -82,16 +74,16 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeView {
     }
 
     @Override
-    public IEdgeBadgeView setBadgePadding(float padding, boolean isDpValue) {
-        float badgePadding = isDpValue ? DisplayUtil.dp2px(context, padding) : padding;
+    public IEdgeBadgeView setBadgePadding(int padding, boolean isDpValue) {
+        int badgePadding = isDpValue ? DisplayUtil.dp2px(context, padding) : padding;
         drawer.setBadgePadding(badgePadding);
         return this;
     }
 
     @Override
-    public IEdgeBadgeView setMargin(float horizontalMargin, float verticalMargin, boolean isDpValue) {
-        float hMargin = isDpValue ? DisplayUtil.dp2px(context, horizontalMargin) : horizontalMargin;
-        float vMargin = isDpValue ? DisplayUtil.dp2px(context, verticalMargin) : verticalMargin;
+    public IEdgeBadgeView setMargin(int horizontalMargin, int verticalMargin, boolean isDpValue) {
+        int hMargin = isDpValue ? DisplayUtil.dp2px(context, horizontalMargin) : horizontalMargin;
+        int vMargin = isDpValue ? DisplayUtil.dp2px(context, verticalMargin) : verticalMargin;
         drawer.setMargin(hMargin, vMargin);
         return this;
     }

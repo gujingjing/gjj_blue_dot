@@ -17,9 +17,9 @@ public interface IEdgeBadgeView {
 
     IEdgeBadgeView setBadgeBackground(Drawable drawable);
 
-    IEdgeBadgeView setBadgePadding(float padding, boolean isDpValue);
+    IEdgeBadgeView setBadgePadding(int padding, boolean isDpValue);
 
-    IEdgeBadgeView setMargin(float horizontalMargin, float verticalMargin, boolean isDpValue);
+    IEdgeBadgeView setMargin(int horizontalMargin, int verticalMargin, boolean isDpValue);
 
     IEdgeBadgeView setBadgeGravity(@EdgeBadgeGravity int gravity);
 

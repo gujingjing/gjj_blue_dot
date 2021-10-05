@@ -76,12 +76,12 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IEdgeBadgeAtt
     }
 
     @Override
-    public IEdgeBadgeView setBadgePadding(float padding, boolean isDpValue) {
+    public IEdgeBadgeView setBadgePadding(int padding, boolean isDpValue) {
         return mEdgeBadgeViewHelper.setBadgePadding(padding, isDpValue);
     }
 
     @Override
-    public IEdgeBadgeView setMargin(float horizontalMargin, float verticalMargin, boolean isDpValue) {
+    public IEdgeBadgeView setMargin(int horizontalMargin, int verticalMargin, boolean isDpValue) {
         return mEdgeBadgeViewHelper.setMargin(horizontalMargin, verticalMargin, isDpValue);
     }
 

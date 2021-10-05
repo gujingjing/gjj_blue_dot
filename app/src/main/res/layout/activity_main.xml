@@ -443,7 +443,6 @@
             android:layout_marginTop="10dp"
             android:background="#CAEACA"
             android:textColor="@android:color/black"
-            app:badge_text="1"
             app:badge_text_color="@color/new_item_indication_dot_inner_text_color"
             app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
