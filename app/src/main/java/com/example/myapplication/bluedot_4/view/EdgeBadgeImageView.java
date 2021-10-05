@@ -38,8 +38,8 @@ public class EdgeBadgeImageView extends ImageView implements IEdgeBadgeView, IEd
     }
 
     @Override
-    public IEdgeBadgeView setBadgeNumber(int badgeNum) {
-        return mEdgeBadgeViewHelper.setBadgeNumber(badgeNum);
+    public IEdgeBadgeView setBadgeViewType(int badgeViewType) {
+        return mEdgeBadgeViewHelper.setBadgeViewType(badgeViewType);
     }
 
     @Override

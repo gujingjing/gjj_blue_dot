@@ -46,8 +46,8 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IEdgeBadgeAtt
     }
 
     @Override
-    public IEdgeBadgeView setBadgeNumber(int badgeNum) {
-        return mEdgeBadgeViewHelper.setBadgeNumber(badgeNum);
+    public IEdgeBadgeView setBadgeViewType(int badgeViewType) {
+        return mEdgeBadgeViewHelper.setBadgeViewType(badgeViewType);
     }
 
     @Override

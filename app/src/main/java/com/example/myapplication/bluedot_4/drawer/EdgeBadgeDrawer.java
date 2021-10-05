@@ -17,6 +17,7 @@ import android.text.TextUtils;
 import com.example.myapplication.R;
 import com.example.myapplication.bludot_v1.DisplayUtil;
 import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
+import com.example.myapplication.bluedot_4.EdgeBadgeViewType;
 import com.example.myapplication.bluedot_4.IEdgeBadgeAttachView;
 import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 
@@ -30,8 +31,9 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private float mHorizontalBadgePadding;
     private float mVerticalBadgePadding;
 
-    private String mBadgeText;
+    private String mBadgeText = "";
     private int mBadgeGravity = EdgeBadgeGravity.TOP_END;
+    private int mBadgeViewType = EdgeBadgeViewType.TYPE_DOT;
     private float mGravityOffsetX;
     private float mGravityOffsetY;
     private int mRedDotRadios;
@@ -74,7 +76,23 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
         if (!mBadgeViewController.isEnabled()) return;
         resetPaints();
         findBadgeCenter();
-        drawBadge(canvas, mBadgeCenter, getBadgeCircleRadius());
+        if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
+            drawDot(canvas, mBadgeCenter, getBadgeCircleRadius());
+        } else {
+            drawText(canvas, mBadgeCenter, getBadgeCircleRadius());
+        }
+    }
+
+    private void drawDot(Canvas canvas, PointF center, float radius) {
+        if (center.x == -1000 && center.y == -1000) {
+            return;
+        }
+        mBadgeBackgroundRect.left = center.x - (int) radius;
+        mBadgeBackgroundRect.top = center.y - (int) radius;
+        mBadgeBackgroundRect.right = center.x + (int) radius;
+        mBadgeBackgroundRect.bottom = center.y + (int) radius;
+        canvas.drawCircle(center.x, center.y, radius, mBadgeBackgroundPaint);
+
     }
 
     @Override
@@ -90,20 +108,16 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public void updateBadgeView() {
-        mBadgeViewController.postInvalidate();
-    }
-
-    @Override
-    public IEdgeBadgeDrawer setBadgeNumber(int badgeNum) {
-        if (badgeNum <= 0) {
-            mBadgeText = "";
-        } else {
-            mBadgeText = String.valueOf(badgeNum);
-        }
+    public IEdgeBadgeDrawer setBadgeViewType(int badgeViewType) {
+        mBadgeViewType = badgeViewType;
         measureText();
         updateBadgeView();
         return this;
+    }
+
+    @Override
+    public void updateBadgeView() {
+        mBadgeViewController.postInvalidate();
     }
 
     @Override
@@ -177,11 +191,12 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
         mBadgeTextPaint.setTextAlign(Paint.Align.CENTER);
     }
 
-    private void drawBadge(Canvas canvas, PointF center, float radius) {
+    private void drawText(Canvas canvas, PointF center, float radius) {
         if (center.x == -1000 && center.y == -1000) {
             return;
         }
-        if (TextUtils.isEmpty(mBadgeText) || mBadgeText.length() == 1) {
+        if (TextUtils.isEmpty(mBadgeText)) return;
+        if (mBadgeText.length() == 1) {
             mBadgeBackgroundRect.left = center.x - (int) radius;
             mBadgeBackgroundRect.top = center.y - (int) radius;
             mBadgeBackgroundRect.right = center.x + (int) radius;
@@ -203,11 +218,9 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
                 canvas.drawRoundRect(mBadgeBackgroundRect, radius, radius, mBadgeBackgroundPaint);
             }
         }
-        if (!TextUtils.isEmpty(mBadgeText)) {
-            float y = (mBadgeBackgroundRect.bottom + mBadgeBackgroundRect.top
-                    - mBadgeTextFontMetrics.bottom - mBadgeTextFontMetrics.top) / 2f;
-            canvas.drawText(mBadgeText, center.x, y, mBadgeTextPaint);
-        }
+        float y = (mBadgeBackgroundRect.bottom + mBadgeBackgroundRect.top
+                - mBadgeTextFontMetrics.bottom - mBadgeTextFontMetrics.top) / 2f;
+        canvas.drawText(mBadgeText, center.x, y, mBadgeTextPaint);
     }
 
     private void findBadgeCenter() {
@@ -281,10 +294,12 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
             mBadgeGravity = typedArray.getInt(attr, mBadgeGravity);
         } else if (attr == R.styleable.badge_view_badge_text) {
             mBadgeText = typedArray.getString(attr);
-            measureText();
         } else if (attr == R.styleable.badge_view_badge_red_dot_radio) {
             mRedDotRadios = typedArray.getDimensionPixelSize(attr, mRedDotRadios);
+        } else if (attr == R.styleable.badge_view_badge_type) {
+            mBadgeViewType = typedArray.getInt(attr, mBadgeViewType);
         }
+        measureText();
     }
 
     private void drawBadgeBackground(Canvas canvas) {
@@ -300,7 +315,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private void measureText() {
         mBadgeTextRect.left = 0;
         mBadgeTextRect.top = 0;
-        if (TextUtils.isEmpty(mBadgeText)) {
+        if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
             mBadgeTextRect.right = mRedDotRadios;
             mBadgeTextRect.bottom = mRedDotRadios;
         } else {
@@ -312,7 +327,7 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     private float getBadgeCircleRadius() {
-        if (TextUtils.isEmpty(mBadgeText)) {
+        if (mBadgeViewType == EdgeBadgeViewType.TYPE_DOT) {
             return mRedDotRadios;
         } else if (mBadgeText.length() == 1) {
             return mBadgeTextRect.height() > mBadgeTextRect.width() ?

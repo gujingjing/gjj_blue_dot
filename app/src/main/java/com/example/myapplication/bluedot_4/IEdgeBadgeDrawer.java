@@ -17,7 +17,7 @@ public interface IEdgeBadgeDrawer {
 
     int getBadgeHeight();
 
-    IEdgeBadgeDrawer setBadgeNumber(int badgeNum);
+    IEdgeBadgeDrawer setBadgeViewType(@EdgeBadgeViewType int badgeViewType);
 
     IEdgeBadgeDrawer setBadgeText(String badgeText);
 

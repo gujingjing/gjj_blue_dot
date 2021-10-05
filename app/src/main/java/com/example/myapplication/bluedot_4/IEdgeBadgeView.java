@@ -4,7 +4,8 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 
 public interface IEdgeBadgeView {
-    IEdgeBadgeView setBadgeNumber(int badgeNum);
+
+    IEdgeBadgeView setBadgeViewType(@EdgeBadgeViewType int badgeViewType);
 
     IEdgeBadgeView setBadgeText(String badgeText);
 

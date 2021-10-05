@@ -39,8 +39,8 @@ public class EdgeBadgeTextView extends TextView implements IEdgeBadgeView, IEdge
     }
 
     @Override
-    public IEdgeBadgeView setBadgeNumber(int badgeNum) {
-        return mEdgeBadgeViewHelper.setBadgeNumber(badgeNum);
+    public IEdgeBadgeView setBadgeViewType(int badgeViewType) {
+        return mEdgeBadgeViewHelper.setBadgeViewType(badgeViewType);
     }
 
     @Override

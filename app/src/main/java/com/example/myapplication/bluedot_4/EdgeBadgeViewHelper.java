@@ -51,12 +51,6 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeView {
     }
 
     @Override
-    public IEdgeBadgeView setBadgeNumber(int badgeNum) {
-        drawer.setBadgeNumber(badgeNum);
-        return this;
-    }
-
-    @Override
     public IEdgeBadgeView setBadgeText(String badgeText) {
         drawer.setBadgeText(badgeText);
         return this;
@@ -111,6 +105,12 @@ public class EdgeBadgeViewHelper implements IEdgeBadgeView {
     public IEdgeBadgeView setBadgeViewVisible(boolean visible) {
         this.visible = visible;
         drawer.updateBadgeView();
+        return this;
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgeViewType(int badgeViewType) {
+        drawer.setBadgeViewType(badgeViewType);
         return this;
     }
 }

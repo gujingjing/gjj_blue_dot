@@ -9,26 +9,22 @@
     </declare-styleable>
 
     <declare-styleable name="badge_view">
-        <!-- 徽章背景色 -->
         <attr name="badge_background_color" format="reference|color" />
-        <!--    徽章背景    -->
         <attr name="badge_background" format="reference" />
-        <!-- 徽章文本的颜色 -->
         <attr name="badge_text_color" format="reference|color" />
-        <!-- 徽章文本字体大小 -->
         <attr name="badge_text_size" format="reference|dimension" />
         <attr name="badge_text" format="reference|string" />
         <attr name="badge_view_id" format="reference|string" />
         <attr name="badge_view_visible" format="boolean" />
-
         <attr name="badge_horizontal_padding" format="reference|dimension" />
         <attr name="badge_vertical_padding" format="reference|dimension" />
-
         <attr name="badge_horizontal_margin" format="reference|dimension" />
         <attr name="badge_vertical_margin" format="reference|dimension" />
         <attr name="badge_red_dot_radio" format="reference|dimension" />
-
-        <!-- 徽章在宿主控件中的位置 -->
+        <attr name="badge_type" format="enum">
+            <enum name="type_dot" value="0" />
+            <enum name="type_text" value="1" />
+        </attr>
         <attr name="badge_gravity" format="enum">
             <enum name="top_start" value="0x00" />
             <enum name="top_center" value="0x01" />
