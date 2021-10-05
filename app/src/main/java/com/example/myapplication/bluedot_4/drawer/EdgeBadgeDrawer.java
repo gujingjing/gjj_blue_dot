@@ -44,7 +44,6 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private Paint mBadgeBackgroundPaint;
 
     protected IAttachViewController mBadgeViewController;
-    private String TAG = "BadgeViewHelperV2";
 
     public EdgeBadgeDrawer(IAttachViewController viewController) {
         this.mBadgeViewController = viewController;
@@ -123,8 +122,8 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer setBadgeTextSize(float size, boolean isSpValue) {
-        mBadgeTextSize = isSpValue ? DisplayUtil.dp2px(mBadgeViewController.getContext(), size) : size;
+    public IEdgeBadgeDrawer setBadgeTextSize(float size) {
+        mBadgeTextSize = size;
         measureText();
         updateBadgeView();
         return this;
@@ -150,10 +149,9 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer setBadgePadding(float padding, boolean isDpValue) {
-        float badgePadding = isDpValue ? DisplayUtil.dp2px(mBadgeViewController.getContext(), padding) : padding;
-        mHorizontalBadgePadding = badgePadding;
-        mVerticalBadgePadding = badgePadding;
+    public IEdgeBadgeDrawer setBadgePadding(float padding) {
+        mHorizontalBadgePadding = padding;
+        mVerticalBadgePadding = padding;
         updateBadgeView();
         return this;
     }
@@ -166,11 +164,9 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     }
 
     @Override
-    public IEdgeBadgeDrawer setGravityOffset(float offsetX, float offsetY, boolean isDpValue) {
-        float x = isDpValue ? DisplayUtil.dp2px(mBadgeViewController.getContext(), offsetX) : offsetX;
-        float y = isDpValue ? DisplayUtil.dp2px(mBadgeViewController.getContext(), offsetY) : offsetY;
-        mGravityOffsetX = x;
-        mGravityOffsetY = y;
+    public IEdgeBadgeDrawer setMargin(float horizontalMargin, float verticalMargin) {
+        mGravityOffsetX = horizontalMargin;
+        mGravityOffsetY = verticalMargin;
         updateBadgeView();
         return this;
     }

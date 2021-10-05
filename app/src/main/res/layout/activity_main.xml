@@ -475,7 +475,6 @@
         app:badge_horizontal_margin="2dp"
         app:badge_horizontal_padding="10dp"
         app:badge_text="New"
-        app:badge_view_id="overflow_button_bottom"
         app:badge_text_color="@color/new_item_indication_dot_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
         app:badge_vertical_margin="2dp"
@@ -494,7 +493,6 @@
         android:textColor="@android:color/black"
         app:badge_gravity="center_end"
         app:badge_text="1"
-        app:badge_view_id="ntp_change_btn"
         app:badge_text_color="@color/new_item_indication_dot_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"/>
 
@@ -512,7 +510,6 @@
         app:badge_gravity="center_end"
         app:badge_horizontal_margin="2dp"
         app:badge_horizontal_padding="10dp"
-        app:badge_view_id="overflow_button_top"
         app:badge_text_color="@color/new_item_indication_dot_text_color"
         app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
         app:badge_vertical_margin="2dp"

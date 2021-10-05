@@ -23,15 +23,15 @@ public interface IEdgeBadgeDrawer {
 
     IEdgeBadgeDrawer setBadgeTextColor(int color);
 
-    IEdgeBadgeDrawer setBadgeTextSize(float size, boolean isSpValue);
+    IEdgeBadgeDrawer setBadgeTextSize(float size);
 
     IEdgeBadgeDrawer setBadgeBackgroundColor(int color);
 
     IEdgeBadgeDrawer setBadgeBackground(Drawable drawable);
 
-    IEdgeBadgeDrawer setBadgePadding(float padding, boolean isDpValue);
+    IEdgeBadgeDrawer setBadgePadding(float padding);
 
     IEdgeBadgeDrawer setBadgeGravity(@EdgeBadgeGravity int gravity);
 
-    IEdgeBadgeDrawer setGravityOffset(float offsetX, float offsetY, boolean isDpValue);
+    IEdgeBadgeDrawer setMargin(float horizontalMargin, float verticalMargin);
 }

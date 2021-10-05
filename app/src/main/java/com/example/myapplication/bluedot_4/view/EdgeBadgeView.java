@@ -2,7 +2,7 @@ package com.example.myapplication.bluedot_4.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -28,7 +28,7 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IAttachViewCo
     public EdgeBadgeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         drawer = new EdgeAutoSizeBadgeDrawer(this);
-        mEdgeBadgeViewHelper = new EdgeBadgeViewHelper(drawer);
+        mEdgeBadgeViewHelper = new EdgeBadgeViewHelper(context, drawer);
         mEdgeBadgeViewHelper.init(context, attrs, defStyleAttr);
     }
 
@@ -46,25 +46,52 @@ public class EdgeBadgeView extends View implements IEdgeBadgeView, IAttachViewCo
     }
 
     @Override
-    public IEdgeBadgeDrawer getBadgeDrawer() {
-        return drawer;
+    public IEdgeBadgeView setBadgeNumber(int badgeNum) {
+        return mEdgeBadgeViewHelper.setBadgeNumber(badgeNum);
     }
 
     @Override
-    public void setOnClickListener(@Nullable OnClickListener l) {
-        super.setOnClickListener(v -> {
-            l.onClick(v);
-            onBadgeClick();
-        });
+    public IEdgeBadgeView setBadgeText(String badgeText) {
+        return mEdgeBadgeViewHelper.setBadgeText(badgeText);
     }
 
     @Override
-    public void onBadgeClick() {
-        mEdgeBadgeViewHelper.onBadgeClick();
+    public IEdgeBadgeView setBadgeTextSize(float size, boolean isSpValue) {
+        return mEdgeBadgeViewHelper.setBadgeTextSize(size, isSpValue);
     }
 
     @Override
-    public void setBadgeViewVisible(boolean visible) {
-        mEdgeBadgeViewHelper.setBadgeViewVisible(visible);
+    public IEdgeBadgeView setBadgeTextColor(int color) {
+        return mEdgeBadgeViewHelper.setBadgeTextColor(color);
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgeBackgroundColor(int color) {
+        return mEdgeBadgeViewHelper.setBadgeBackgroundColor(color);
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgeBackground(Drawable drawable) {
+        return mEdgeBadgeViewHelper.setBadgeBackground(drawable);
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgePadding(float padding, boolean isDpValue) {
+        return mEdgeBadgeViewHelper.setBadgePadding(padding, isDpValue);
+    }
+
+    @Override
+    public IEdgeBadgeView setMargin(float horizontalMargin, float verticalMargin, boolean isDpValue) {
+        return mEdgeBadgeViewHelper.setMargin(horizontalMargin, verticalMargin, isDpValue);
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgeGravity(int gravity) {
+        return mEdgeBadgeViewHelper.setBadgeGravity(gravity);
+    }
+
+    @Override
+    public IEdgeBadgeView setBadgeViewVisible(boolean visible) {
+        return mEdgeBadgeViewHelper.setBadgeViewVisible(visible);
     }
 }

@@ -28,32 +28,32 @@ class MainActivity : Activity() {
         }
         findViewById<EdgeBadgeTextView>(R.id.text_new_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeText("测")
+                badgeView.setBadgeText("测")
             }
         }
         findViewById<EdgeBadgeTextView>(R.id.text_number_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeNumber(99)
+                badgeView.setBadgeNumber(99)
             }
         }
         findViewById<EdgeBadgeTextView>(R.id.text_dot_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeNumber(-1)
+                badgeView.setBadgeNumber(-1)
             }
         }
         findViewById<EdgeBadgeView>(R.id.text_add_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeText("NNN")
+                badgeView.setBadgeText("NNN")
             }
         }
         findViewById<EdgeBadgeView>(R.id.number_add_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeNumber(999)
+                badgeView.setBadgeNumber(999)
             }
         }
         findViewById<EdgeBadgeView>(R.id.dot_to_number_test)?.let { badgeView->
             badgeView.setOnClickListener {
-                badgeView.badgeDrawer.setBadgeNumber(999)
+                badgeView.setBadgeNumber(999)
             }
         }
     }
