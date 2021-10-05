@@ -10,9 +10,9 @@ import com.example.myapplication.bluedot_4.drawer.EdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.EdgeBadgeViewHelper;
 import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 import com.example.myapplication.bluedot_4.IEdgeBadgeView;
-import com.example.myapplication.bluedot_4.IAttachViewController;
+import com.example.myapplication.bluedot_4.IEdgeBadgeAttachView;
 
-public class EdgeBadgeImageView extends ImageView implements IEdgeBadgeView, IAttachViewController {
+public class EdgeBadgeImageView extends ImageView implements IEdgeBadgeView, IEdgeBadgeAttachView {
     private EdgeBadgeViewHelper mEdgeBadgeViewHelper;
     private IEdgeBadgeDrawer drawer;
 

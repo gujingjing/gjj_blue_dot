@@ -1,10 +1,10 @@
 package com.example.myapplication.bluedot_4.drawer;
 
-import com.example.myapplication.bluedot_4.IAttachViewController;
+import com.example.myapplication.bluedot_4.IEdgeBadgeAttachView;
 
 public class EdgeAutoSizeBadgeDrawer extends EdgeBadgeDrawer {
 
-    public EdgeAutoSizeBadgeDrawer(IAttachViewController viewController) {
+    public EdgeAutoSizeBadgeDrawer(IEdgeBadgeAttachView viewController) {
         super(viewController);
     }
 

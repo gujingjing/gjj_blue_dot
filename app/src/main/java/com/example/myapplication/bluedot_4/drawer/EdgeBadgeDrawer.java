@@ -17,7 +17,7 @@ import android.text.TextUtils;
 import com.example.myapplication.R;
 import com.example.myapplication.bludot_v1.DisplayUtil;
 import com.example.myapplication.bluedot_4.EdgeBadgeGravity;
-import com.example.myapplication.bluedot_4.IAttachViewController;
+import com.example.myapplication.bluedot_4.IEdgeBadgeAttachView;
 import com.example.myapplication.bluedot_4.IEdgeBadgeDrawer;
 
 public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
@@ -43,9 +43,9 @@ public class EdgeBadgeDrawer implements IEdgeBadgeDrawer {
     private TextPaint mBadgeTextPaint;
     private Paint mBadgeBackgroundPaint;
 
-    protected IAttachViewController mBadgeViewController;
+    protected IEdgeBadgeAttachView mBadgeViewController;
 
-    public EdgeBadgeDrawer(IAttachViewController viewController) {
+    public EdgeBadgeDrawer(IEdgeBadgeAttachView viewController) {
         this.mBadgeViewController = viewController;
         init(mBadgeViewController.getContext());
     }

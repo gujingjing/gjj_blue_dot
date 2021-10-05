@@ -1,13 +1,15 @@
 package com.example.myapplication.bluedot_v3;
 
-import com.example.myapplication.bluedot_4.IAttachViewController;
+import com.example.myapplication.bluedot_4.IEdgeBadgeAttachView;
 
 public class DefaultEdgeBadgeConfig implements IEdgeBadgeConfig {
 
-    protected IAttachViewController controller;
-    public DefaultEdgeBadgeConfig(IAttachViewController controller){
-        this.controller=controller;
+    protected IEdgeBadgeAttachView controller;
+
+    public DefaultEdgeBadgeConfig(IEdgeBadgeAttachView controller) {
+        this.controller = controller;
     }
+
     private String badgeViewId;
     private boolean visible = true;
 

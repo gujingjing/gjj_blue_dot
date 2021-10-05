@@ -5,7 +5,7 @@ import android.content.Context;
 /**
  * Badge attach view property controller
  */
-public interface IAttachViewController {
+public interface IEdgeBadgeAttachView {
     int getWidth();
 
     int getHeight();
