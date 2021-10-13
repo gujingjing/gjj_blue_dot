@@ -21,9 +21,15 @@
         <attr name="badge_horizontal_margin" format="reference|dimension" />
         <attr name="badge_vertical_margin" format="reference|dimension" />
         <attr name="badge_red_dot_radio" format="reference|dimension" />
+
+        <attr name="badge_border_color" format="reference|color" />
+        <attr name="badge_border_radio" format="reference|dimension" />
+        <attr name="badge_border_width" format="reference|dimension" />
+
         <attr name="badge_type" format="enum">
             <enum name="type_dot" value="0" />
-            <enum name="type_text" value="1" />
+            <enum name="type_number" value="1" />
+            <enum name="type_text" value="2" />
         </attr>
         <attr name="badge_gravity" format="enum">
             <enum name="top_start" value="0x00" />

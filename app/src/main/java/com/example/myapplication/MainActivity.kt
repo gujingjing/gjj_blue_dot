@@ -22,23 +22,24 @@ class MainActivity : Activity() {
                 NewItemIndicatorManager.getInstance().init()
             }
         }
-        findViewById<View>(R.id.badge_test_1)?.apply {
+        findViewById<EdgeBadgeTextView>(R.id.badge_test_1)?.apply {
             setOnClickListener {
-
+                this.setMargin(10, 10, true)
+                    .setBadgePadding(4, true)
             }
         }
-        findViewById<EdgeBadgeTextView>(R.id.text_new_test)?.let { badgeView->
+        findViewById<EdgeBadgeTextView>(R.id.text_new_test)?.let { badgeView ->
             badgeView.setOnClickListener {
                 badgeView.setBadgeText("测")
                 badgeView.setBadgeViewType(EdgeBadgeViewType.TYPE_TEXT);
             }
         }
-        findViewById<EdgeBadgeTextView>(R.id.text_number_test)?.let { badgeView->
+        findViewById<EdgeBadgeTextView>(R.id.text_number_test)?.let { badgeView ->
             badgeView.setOnClickListener {
                 badgeView.setBadgeText("99")
             }
         }
-        findViewById<EdgeBadgeTextView>(R.id.text_dot_test)?.let { badgeView->
+        findViewById<EdgeBadgeTextView>(R.id.text_dot_test)?.let { badgeView ->
             badgeView.setOnClickListener {
                 badgeView.setBadgeText("-1")
             }

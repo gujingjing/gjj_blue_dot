@@ -24,4 +24,10 @@ public interface IEdgeBadgeView {
     IEdgeBadgeView setBadgeGravity(@EdgeBadgeGravity int gravity);
 
     IEdgeBadgeView setBadgeViewVisible(boolean visible);
+
+//    IEdgeBadgeView setBadgeViewBorderRadio(int radios, boolean isDpValue);
+//
+//    IEdgeBadgeView setBadgeViewBorderWidth(int width, boolean isDpValue);
+//
+//    IEdgeBadgeView setBadgeViewBorderColor(@ColorInt int color, boolean isDpValue);
 }

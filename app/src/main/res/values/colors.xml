@@ -11,5 +11,6 @@
     <color name="new_item_indication_dot_color">#FF0078D4</color>
     <color name="new_item_indication_dot_text_color">#D83B01</color>
     <color name="new_item_indication_dot_back_color">#E83A3A</color>
+    <color name="new_item_indication_border_color">#FF0078D4</color>
     <color name="new_item_indication_dot_inner_text_color">#FFFFFF</color>
 </resources>

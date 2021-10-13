@@ -480,14 +480,10 @@
         android:textColor="@android:color/black"
         app:badge_background="@drawable/frame_63123"
         app:badge_gravity="center_end"
-        app:badge_horizontal_margin="2dp"
-        app:badge_horizontal_padding="10dp"
         app:badge_type="type_dot"
         app:badge_text="New"
         app:badge_text_color="@color/new_item_indication_dot_text_color"
-        app:badge_text_size="@dimen/new_item_indicator_dot_text_size"
-        app:badge_vertical_margin="2dp"
-        app:badge_vertical_padding="2dp" />
+        app:badge_text_size="@dimen/new_item_indicator_dot_text_size" />
 
     <com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
         android:id="@+id/badge_test_2"
