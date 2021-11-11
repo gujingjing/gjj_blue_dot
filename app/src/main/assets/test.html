@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<title>APP 通过 JavaScript 弹出 HTML 中的三种不同的对话框</title>
+<script>
+
+    // 获取手机陀螺仪
+    var updateGravity = function(event) {
+
+        console.log("alpha:",event.alpha); // X
+        console.log("beta:",event.beta); // Y
+        console.log("gamma:",event.gamma); // Z
+        window.android.toastTest("陀螺仪-x:"+event.alpha+",y:"+event.beta+",z"+event.gamma);
+    };
+
+    // 监听 window 的 deviceorientation 事件
+    window.addEventListener('deviceorientation', updateGravity, false);
+
+    function alertFun()
+    {
+        window.android.toastTest("sss");
+    }
+
+    function getLocation(){
+        //判断是否支持 获取本地位置
+         if (navigator.geolocation) {
+               window.android.toastTest("开始后获取定位");
+               var options = {
+                  enableHighAccuracy: true,
+                  timeout: 5000,
+                  maximumAge: 0
+                };
+           var n = navigator.geolocation.getCurrentPosition(function(res){
+               console.log(res); // 需要的坐标地址就在res中
+               alert('开始后获取定位');
+               window.android.toastTest("成功");
+           },function(res){
+            window.android.toastTest("失败");
+            window.android.toastTest(res.message);
+           });
+        } else {
+            alert('该浏览器不支持定位');
+            window.android.toastTest("该浏览器不支持定位");
+        }
+    }
+    function confirmFun()
+    {
+        if(confirm("访问简单教程?"))
+        {location.href = "https://www.twle.cn";}
+        else alert("取消访问!");
+    }
+    function promptFun()
+    {
+        var word = prompt("Prompt 对话框","请输入点什么...:");
+        if(word)
+        {
+            alert("你输入了:"+word)
+        }else{
+            alert("你什么都没写!");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<p>APP 通过 JavaScript 弹出 HTML 中的三种不同的对话框</p>
+<p>alert 对话框</p>
+<p>
+    <input type="submit" name="Submit1" value="展示1" onclick="alertFun()"/>
+</p>
+<p>Confirm对话框</p>
+<p>
+    <input type="submit" name="Submit2" value="展示2" onclick="getLocation()"/>
+</p>
+<p>Prompt对话框</p>
+<p>
+    <input type="submit" name="Submit3" value="展示3" onclick="promptFun()"/>
+</p>

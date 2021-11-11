@@ -1,12 +1,14 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.example.myapplication.bluedot.NewItemIndicatorManager
 import com.example.myapplication.bluedot_4.EdgeBadgeViewType
 import com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
 import com.example.myapplication.bluedot_4.view.EdgeBadgeView
+import com.example.myapplication.hh5test.H5TestActivity
 
 
 class MainActivity : Activity() {
@@ -19,7 +21,8 @@ class MainActivity : Activity() {
     private fun init() {
         findViewById<View>(R.id.btn_test_asset)?.apply {
             setOnClickListener {
-                NewItemIndicatorManager.getInstance().init()
+//                NewItemIndicatorManager.getInstance().init()
+                startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
             }
         }
         findViewById<EdgeBadgeTextView>(R.id.badge_test_1)?.apply {

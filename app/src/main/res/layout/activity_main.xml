@@ -15,6 +15,7 @@
         android:weightSum="4">
 
         <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
+            android:id="@+id/btn_test_asset"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -573,7 +574,6 @@
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/btn_test_asset"
         android:text="test asset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
