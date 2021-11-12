@@ -9,34 +9,31 @@
         console.log("alpha:",event.alpha); // X
         console.log("beta:",event.beta); // Y
         console.log("gamma:",event.gamma); // Z
-        window.android.toastTest("陀螺仪-x:"+event.alpha+",y:"+event.beta+",z"+event.gamma);
+       // window.android.toastTest("陀螺仪-x:"+event.alpha+",y:"+event.beta+",z"+event.gamma);
     };
 
     // 监听 window 的 deviceorientation 事件
-    window.addEventListener('deviceorientation', updateGravity, false);
+    // window.addEventListener('deviceorientation', updateGravity, false);
 
     function alertFun()
     {
         window.android.toastTest("sss");
     }
 
+    function success(position) {
+            window.android.toastTest("成功");
+  };
+
+  function error() {
+            window.android.toastTest("失败");
+            // window.android.toastTest(res.message);
+  };
+
     function getLocation(){
         //判断是否支持 获取本地位置
          if (navigator.geolocation) {
-               window.android.toastTest("开始后获取定位");
-               var options = {
-                  enableHighAccuracy: true,
-                  timeout: 5000,
-                  maximumAge: 0
-                };
-           var n = navigator.geolocation.getCurrentPosition(function(res){
-               console.log(res); // 需要的坐标地址就在res中
-               alert('开始后获取定位');
-               window.android.toastTest("成功");
-           },function(res){
-            window.android.toastTest("失败");
-            window.android.toastTest(res.message);
-           });
+               window.android.toastTest("开始获取定位");
+               navigator.geolocation.getCurrentPosition(success, error);
         } else {
             alert('该浏览器不支持定位');
             window.android.toastTest("该浏览器不支持定位");

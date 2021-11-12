@@ -1,13 +1,8 @@
 package com.example.myapplication.hh5test
 
-import android.R.attr.button
 import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.webkit.JavascriptInterface
-import android.webkit.WebSettings
-import android.webkit.WebView
+import android.webkit.*
 import android.widget.Toast
 import com.example.myapplication.R
 
@@ -36,6 +31,20 @@ class H5TestActivity : Activity() {
                 Toast.makeText(this@H5TestActivity, ss, Toast.LENGTH_SHORT).show()
             }
         }, "android")
+        webView?.webChromeClient = object : WebChromeClient() {
+
+            override fun onGeolocationPermissionsShowPrompt(
+                origin: String?,
+                callback: GeolocationPermissions.Callback?
+            ) {
+                Toast.makeText(
+                    this@H5TestActivity,
+                    "get request permission$origin",
+                    Toast.LENGTH_SHORT
+                ).show()
+                callback?.invoke(origin, true, false)
+            }
+        }
         //加载页面
         webView?.loadUrl("file:///android_asset/test.html")
     }
