@@ -9,6 +9,7 @@ import com.example.myapplication.bluedot_4.EdgeBadgeViewType
 import com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
 import com.example.myapplication.bluedot_4.view.EdgeBadgeView
 import com.example.myapplication.hh5test.H5TestActivity
+import com.example.myapplication.swap.SwapTestActivity
 
 
 class MainActivity : Activity() {
@@ -25,10 +26,17 @@ class MainActivity : Activity() {
                 startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
             }
         }
+        findViewById<View>(R.id.btn_test_asset2)?.apply {
+            setOnClickListener {
+//                NewItemIndicatorManager.getInstance().init()
+//                startActivity(Intent(this@MainActivity, SwapTestActivity::class.java))
+                startActivity(Intent(this@MainActivity, SeekbarTestActivity::class.java))
+            }
+        }
         findViewById<EdgeBadgeTextView>(R.id.badge_test_1)?.apply {
             setOnClickListener {
                 this.setMargin(10, 10, true)
-                    .setBadgePadding(4, true)
+                        .setBadgePadding(4, true)
             }
         }
         findViewById<EdgeBadgeTextView>(R.id.text_new_test)?.let { badgeView ->

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <application
@@ -20,9 +21,13 @@
         </activity>
         <activity
             android:name=".hh5test.H5TestActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name=".swap.SwapTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SeekbarTestActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

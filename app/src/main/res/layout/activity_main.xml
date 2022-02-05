@@ -38,6 +38,7 @@
             app:badge_vertical_padding="2dp" />
 
         <com.example.myapplication.bluedot_4.view.EdgeBadgeImageView
+            android:id="@+id/btn_test_asset2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"

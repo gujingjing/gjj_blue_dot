@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Live_widgetSeekBarStyle" parent="@android:style/Widget.SeekBar" />
+    <!--自定义seekbarstyle-->
+    <style name="CustomSeekbarStyle">
+        <item name="android:maxHeight">4dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@color/colorAccent</item>
+        <item name="android:progressDrawable">@drawable/seekbar_progress_drawable</item>
+        <item name="android:minHeight">4dp</item>
+        <item name="android:thumb">@drawable/seekbar_tumb</item>
+    </style>
+</resources>

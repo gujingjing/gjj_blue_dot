@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--    <android.support.v7.widget.AppCompatSeekBar-->
+    <!--        style="@style/Live_widgetSeekBarStyle"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <com.example.myapplication.seekbar2.SeekBarV3
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:layout_marginTop="20dp"
+        style="@style/CustomSeekbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.example.myapplication.seekbar2.SeekBarV2
+        android:id="@+id/seekBarV2"
+        app:edgeTickCount="4"
+        app:edgeTickRadio="4dp"
+        android:layout_marginTop="20dp"
+        style="@style/CustomSeekbarStyle"
+        android:padding="10dp"
+        app:edgeTickSectionColor="@color/new_item_indication_dot_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.example.myapplication.seekbar.RangeSeekBar
+        android:id="@+id/sb_steps_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:rsb_gravity="bottom"
+        app:rsb_mode="single"
+        app:rsb_progress_color="@color/colorProgress"
+        app:rsb_step_auto_bonding="true"
+        app:rsb_step_color="@color/colorProgress"
+        app:rsb_step_height="15dp"
+        app:rsb_step_radius="4dp"
+        app:rsb_step_width="10dp"
+        app:rsb_steps="4"
+        app:rsb_thumb_drawable="@drawable/thumb_yellow_stroke"
+        app:rsb_tick_mark_layout_gravity="top"
+        app:rsb_tick_mark_mode="other"
+        app:rsb_tick_mark_text_array="@array/wordsArray"
+        app:rsb_tick_mark_text_margin="20dp" />
+
+
+</LinearLayout>
