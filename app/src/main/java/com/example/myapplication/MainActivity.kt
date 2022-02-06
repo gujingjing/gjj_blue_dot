@@ -10,6 +10,7 @@ import com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
 import com.example.myapplication.bluedot_4.view.EdgeBadgeView
 import com.example.myapplication.hh5test.H5TestActivity
 import com.example.myapplication.swap.SwapTestActivity
+import com.example.myapplication.viewpagerr.ViewPagerTestActivity
 
 
 class MainActivity : Activity() {
@@ -23,7 +24,8 @@ class MainActivity : Activity() {
         findViewById<View>(R.id.btn_test_asset)?.apply {
             setOnClickListener {
 //                NewItemIndicatorManager.getInstance().init()
-                startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
+//                startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
+                startActivity(Intent(this@MainActivity, ViewPagerTestActivity::class.java))
             }
         }
         findViewById<View>(R.id.btn_test_asset2)?.apply {

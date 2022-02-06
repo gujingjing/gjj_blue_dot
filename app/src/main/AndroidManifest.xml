@@ -28,6 +28,9 @@
         <activity
             android:name=".SeekbarTestActivity"
             android:exported="true" />
+        <activity
+            android:name=".viewpagerr.ViewPagerTestActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
