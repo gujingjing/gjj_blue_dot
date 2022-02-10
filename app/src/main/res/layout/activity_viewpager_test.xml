@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,4 +9,16 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</LinearLayout>
+
+    <com.example.myapplication.viewpagerr.ViewPagerIndicator
+        android:id="@+id/viewPagerIndicator"
+        android:gravity="center"
+        app:indicatorMargin="5dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom"
+        app:indicatorItemLayoutId="@layout/indicator_item"
+        app:indicatorDefaultColor="@color/new_item_indication_dot_color"
+        app:indicatorSelectedColor="@color/new_item_indication_dot_text_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

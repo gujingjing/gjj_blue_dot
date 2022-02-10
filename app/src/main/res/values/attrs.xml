@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="EdgeViewPagerIndicator">
+        <attr name="indicatorMargin" format="reference|dimension" />
+        <attr name="indicatorDefaultColor" format="color" />
+        <attr name="indicatorSelectedColor" format="color" />
+        <attr name="indicatorItemLayoutId" format="reference" />
+    </declare-styleable>
+
     <declare-styleable name="EdgeTickSlide">
         <attr name="edgeTickCount" format="integer" />
         <attr name="edgeTickRadio" format="dimension" />
@@ -171,5 +178,6 @@
         <attr name="rsb_step_drawable" format="reference" />
 
     </declare-styleable>
+
 
 </resources>

@@ -3,8 +3,10 @@ package com.example.myapplication.viewpagerr
 import android.app.Activity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.myapplication.R
 
@@ -38,5 +40,31 @@ class ViewPagerTestActivity : Activity() {
                 }
             }
         }
+        val viewPagerIndicator = findViewById<ViewPagerIndicator>(R.id.viewPagerIndicator)
+        var mIndicatorDefaultColor = resources.getColor(R.color.new_item_indication_dot_color)
+        var mIndicatorSelectedColor = resources.getColor(R.color.new_item_indication_dot_text_color)
+//        viewPagerIndicator.setIndicatorViewAdapter(object :
+//            ViewPagerIndicator.IndicatorViewAdapter {
+//            override fun getView(): View {
+////                val view: View =
+////                    LayoutInflater.from(this@ViewPagerTestActivity)
+////                        .inflate(R.layout.indicator_item, null, false)
+//                var view = LinearLayout(this@ViewPagerTestActivity)
+//                view.layoutParams = ViewGroup.LayoutParams(80, 40)
+//                view.setBackgroundColor(mIndicatorDefaultColor)
+//                return view
+//            }
+//
+//            override fun onItemSelected(view: View?, position: Int) {
+//                view?.setBackgroundColor(mIndicatorSelectedColor)
+//            }
+//
+//            override fun onItemUnSelected(view: View?, position: Int) {
+//                view?.setBackgroundColor(mIndicatorDefaultColor)
+//            }
+//
+//        })
+        viewPagerIndicator.bindViewPager(viewPager)
+        viewPagerIndicator.setPageCount(list.size)
     }
 }
