@@ -47,7 +47,7 @@ public class ViewPagerIndicator extends LinearLayout {
             mIndicatorSelectedColor = attributes.getColor(R.styleable.EdgeViewPagerIndicator_indicatorSelectedColor, Color.TRANSPARENT);
             int itemLayoutId = attributes.getResourceId(R.styleable.EdgeViewPagerIndicator_indicatorItemLayoutId, 0);
             if (itemLayoutId != 0) {
-                mViewAdapter = new DefaultViewAdapter(itemLayoutId);
+                mViewAdapter = new DefaultViewAdapter(getContext(), itemLayoutId, mIndicatorDefaultColor, mIndicatorSelectedColor);
             }
         } finally {
             attributes.recycle();
@@ -86,7 +86,7 @@ public class ViewPagerIndicator extends LinearLayout {
         if (mViewAdapter == null) return;
 
         for (int i = 0; i < pageCount; ++i) {
-            View view = mViewAdapter.getView();
+            View view = mViewAdapter.getView(this);
             mIndexViews.add(view);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
@@ -96,7 +96,7 @@ public class ViewPagerIndicator extends LinearLayout {
             if (layoutParams instanceof MarginLayoutParams && i != 0) {
                 ((MarginLayoutParams) layoutParams).leftMargin = mIndicatorMargin;
             }
-            addView(view);
+            addView(view, layoutParams);
         }
         setSelectedIndex(mSelectedIndex);
     }
@@ -131,7 +131,7 @@ public class ViewPagerIndicator extends LinearLayout {
     }
 
     interface IndicatorViewAdapter {
-        View getView();
+        View getView(ViewGroup parent);
 
         void onItemSelected(View view, int position);
 
@@ -139,15 +139,22 @@ public class ViewPagerIndicator extends LinearLayout {
     }
 
     class DefaultViewAdapter implements IndicatorViewAdapter {
+        private Context mContext;
         private int mLayoutId;
+        private int mIndicatorDefaultColor;
+        private int mIndicatorSelectedColor;
 
-        public DefaultViewAdapter(int layoutId) {
+        public DefaultViewAdapter(Context context, int layoutId,
+                                  int indicatorDefaultColor, int indicatorSelectedColor) {
+            mContext = context;
             mLayoutId = layoutId;
+            mIndicatorDefaultColor = indicatorDefaultColor;
+            mIndicatorSelectedColor = indicatorSelectedColor;
         }
 
         @Override
-        public View getView() {
-            View view = LayoutInflater.from(getContext()).inflate(mLayoutId, null, false);
+        public View getView(ViewGroup parent) {
+            View view = LayoutInflater.from(mContext).inflate(mLayoutId, parent, false);
             view.setBackgroundColor(mIndicatorDefaultColor);
             return view;
         }
