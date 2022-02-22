@@ -2,4 +2,5 @@
 <resources>
     <dimen name="new_item_indicator_dot_diameter">6dp</dimen>
     <dimen name="new_item_indicator_dot_text_size">11sp</dimen>
+    <dimen name="like_padding">30dp</dimen>
 </resources>

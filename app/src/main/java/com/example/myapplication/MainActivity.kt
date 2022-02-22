@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.example.myapplication.anim1.AnimTest1
 import com.example.myapplication.bluedot.NewItemIndicatorManager
 import com.example.myapplication.bluedot_4.EdgeBadgeViewType
 import com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
@@ -25,7 +26,8 @@ class MainActivity : Activity() {
             setOnClickListener {
 //                NewItemIndicatorManager.getInstance().init()
 //                startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
-                startActivity(Intent(this@MainActivity, ViewPagerTestActivity::class.java))
+//                startActivity(Intent(this@MainActivity, ViewPagerTestActivity::class.java))
+                startActivity(Intent(this@MainActivity, AnimTest1::class.java))
             }
         }
         findViewById<View>(R.id.btn_test_asset2)?.apply {

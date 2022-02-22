@@ -31,6 +31,10 @@
         <activity
             android:name=".viewpagerr.ViewPagerTestActivity"
             android:exported="true" />
+        <activity
+            android:name=".anim1.AnimTest1"
+            android:exported="true" />
+
     </application>
 
 </manifest>
