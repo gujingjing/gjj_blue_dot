@@ -35,6 +35,11 @@
             android:name=".anim1.AnimTest1"
             android:exported="true" />
 
+        <activity
+            android:name=".popwindow.PopWindowTest"
+            android:exported="true" />
+
+
     </application>
 
 </manifest>
