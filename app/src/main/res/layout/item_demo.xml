@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/item_text"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="center"
-    android:padding="10dp"
+    android:layout_marginTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-</TextView>
+    <TextView
+        android:id="@+id/item_text"
+        android:background="@color/teal_700"
+        android:padding="10dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -33,6 +33,14 @@ public class EdgeListTestPageItem implements EdgeOverflowPageItem {
         GridLayoutManager manager = new GridLayoutManager(context, 4);
         // 设置布局管理器
         recyclerView.setLayoutManager(manager);
+        GridSpaceItemDecoration itemDecoration = new GridSpaceItemDecoration(
+                recyclerView.getContext(),
+                4,
+                recyclerView.getMeasuredWidth(),
+                recyclerView.getResources().getDimensionPixelOffset(R.dimen.page_item_width));
+//        recyclerView.addItemDecoration(itemDecoration);
+//        int padding = itemDecoration.getPadding();
+//        recyclerView.setPadding(padding, 0, 0, padding);
         // 设置adapter
         DemoAdapter adapter = new DemoAdapter(context, items);
         recyclerView.setAdapter(adapter);

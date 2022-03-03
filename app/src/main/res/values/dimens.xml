@@ -4,4 +4,5 @@
     <dimen name="new_item_indicator_dot_text_size">11sp</dimen>
     <dimen name="like_padding">30dp</dimen>
     <dimen name="anim_padding">5dp</dimen>
+    <dimen name="page_item_width">50dp</dimen>
 </resources>

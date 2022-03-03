@@ -34,7 +34,6 @@ class ViewPagerTestActivity : Activity() {
                             "position:$position -6",
                             "position:$position -7",
                             "position:$position -8",
-                            "position:$position -9",
                         )
                     )
                 }

@@ -10,6 +10,7 @@ import com.example.myapplication.bluedot_4.EdgeBadgeViewType
 import com.example.myapplication.bluedot_4.view.EdgeBadgeTextView
 import com.example.myapplication.bluedot_4.view.EdgeBadgeView
 import com.example.myapplication.hh5test.H5TestActivity
+import com.example.myapplication.hight.HighlightActivity
 import com.example.myapplication.popwindow.PopWindowTest
 import com.example.myapplication.swap.SwapTestActivity
 import com.example.myapplication.viewpagerr.ViewPagerTestActivity
@@ -25,11 +26,12 @@ class MainActivity : Activity() {
     private fun init() {
         findViewById<View>(R.id.btn_test_asset)?.apply {
             setOnClickListener {
-//                NewItemIndicatorManager.getInstance().init()
+//                NewItemIndicatorManager.getInstance().init()s
+                startActivity(Intent(this@MainActivity, HighlightActivity::class.java))
 //                startActivity(Intent(this@MainActivity, H5TestActivity::class.java))
 //                startActivity(Intent(this@MainActivity, ViewPagerTestActivity::class.java))
 //                startActivity(Intent(this@MainActivity, AnimTest1::class.java))
-                startActivity(Intent(this@MainActivity, PopWindowTest::class.java))
+//                startActivity(Intent(this@MainActivity, PopWindowTest::class.java))
             }
         }
         findViewById<View>(R.id.btn_test_asset2)?.apply {
