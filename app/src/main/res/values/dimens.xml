@@ -10,4 +10,5 @@
     <dimen name="hight_image_padding">15dp</dimen>
     <dimen name="hight_image_margin">5dp</dimen>
     <dimen name="hight_text_image_padding">10dp</dimen>
+    <dimen name="hight_text_width">160dp</dimen>
 </resources>

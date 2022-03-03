@@ -17,7 +17,9 @@ import android.graphics.Typeface;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.Layout;
 import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -28,7 +30,7 @@ import com.example.myapplication.R;
 public class EdgeOverflowHiLightView1 extends RelativeLayout {
 
     private final String TAG = "EdgeOverflowHiLightView";
-    private Paint mTextPaint;
+    private TextPaint mTextPaint;
     private Paint mBitmapPaint;
     private RectF mTargetRect;
     private float mTargetWidth;
@@ -36,7 +38,9 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
     private int mLayerCount;
     private Xfermode mXfermode;
     private int mRadio;
-    private int mTextSize;
+    private int mTextWidth;
+    private int mBackgroundColor;
+    private float mPreTextLineHeight;
 
     private Paint mPaint;
 
@@ -59,10 +63,10 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
 
         mPaint = new Paint(ANTI_ALIAS_FLAG);
         mPaint.setAntiAlias(true);
-        mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setTextSize(getResources().getDimensionPixelSize(R.dimen.hight_text_size));
-        mTextPaint.setColor(Color.WHITE);
+        mTextPaint.setColor(getResources().getColor(R.color.hight_light_color));
         Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
         mTextPaint.setTypeface(font);
         mTextPaint.setAntiAlias(true);
@@ -70,7 +74,11 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         mBitmapPaint.setAntiAlias(true);
         mXfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
 
+        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+        mPreTextLineHeight = fontMetrics.descent - fontMetrics.ascent;
         mRadio = getContext().getResources().getDimensionPixelSize(R.dimen.hight_padding) * 2;
+        mTextWidth = getResources().getDimensionPixelOffset(R.dimen.hight_text_width);
+        mBackgroundColor = getResources().getColor(R.color.hight_light_background);
     }
 
     public void setTargetRect(Rect rect) {
@@ -93,7 +101,7 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         }
 
         mPaint.setXfermode(null);
-        mPaint.setColor(Color.parseColor("#90000000"));
+        mPaint.setColor(mBackgroundColor);
         canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
 
         Log.e(TAG, "onDraw mTargetRect-left;" + mTargetRect.left + ",top:" + mTargetRect.top +
@@ -102,16 +110,13 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         mPaint.setColor(Color.WHITE);
         mPaint.setXfermode(mXfermode);
         canvas.drawRoundRect(mTargetRect, mRadio, mRadio, mPaint);
-
         drawTips1(canvas);
         drawTips2(canvas);
-
         canvas.restoreToCount(mLayerCount);
     }
 
     private void drawTips1(Canvas canvas) {
         Bitmap bitmap = getBitmap(getContext(), R.drawable.right_arrow);
-        int bitmapWidth = bitmap.getWidth();
         int bitmapHeight = bitmap.getHeight();
         int imagePadding = getResources().getDimensionPixelOffset(R.dimen.hight_image_padding);
         int imageMargin = getResources().getDimensionPixelOffset(R.dimen.hight_image_margin);
@@ -121,12 +126,14 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
 
         canvas.drawBitmap(bitmap, bitmapLeftPosition, bitmapTopPosition, mBitmapPaint);
         // draw text
-        String text = "Download page has";
-        String text1 = "been moved here.";
-        float textWidth = mTextPaint.measureText(text);
-        canvas.drawText(text, getSafeDrawPosition(bitmapLeftPosition - textWidth / 2),
-                getSafeDrawPosition(bitmapTopPosition - textPadding), mTextPaint);
-//        canvas.drawText(text1, mTargetRect.right - textWidth / 2 - width / 2 - padding, mTargetRect.top - height - textPadding, mTextPaint);
+        String text = "Download page hasbeen moved here.";
+        float diffY = (mTextPaint.measureText(text) / mTextWidth) * mPreTextLineHeight;
+        canvas.save();
+        canvas.translate(getSafeDrawPosition(bitmapLeftPosition - mTextWidth / 2),
+                getSafeDrawPosition(bitmapTopPosition - textPadding - diffY));
+        StaticLayout myStaticLayout = new StaticLayout(text, mTextPaint, mTextWidth, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        myStaticLayout.draw(canvas);
+        canvas.restore();
     }
 
     private void drawTips2(Canvas canvas) {
@@ -140,11 +147,14 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         float bitmapTopPosition = mTargetRect.top - bitmapHeight + imagePadding + mRadio;
         canvas.drawBitmap(bitmap, bitmapLeftPosition, bitmapTopPosition, mBitmapPaint);
         // draw text
-        String text = "Add to collection has";
-        String text1 = "been moved here.";
-        float textWidth = mTextPaint.measureText(text);
-        canvas.drawText(text, getSafeDrawPosition(bitmapLeftPosition - textWidth / 2),
-                getSafeDrawPosition(bitmapTopPosition - textPadding), mTextPaint);
+        String text = "Add to collection hasbeen moved here.";
+        float diffY = (mTextPaint.measureText(text) / mTextWidth) * mPreTextLineHeight;
+        canvas.save();
+        canvas.translate(getSafeDrawPosition(bitmapLeftPosition - mTextWidth / 2),
+                getSafeDrawPosition(bitmapTopPosition - textPadding - diffY));
+        StaticLayout myStaticLayout = new StaticLayout(text, mTextPaint, mTextWidth, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        myStaticLayout.draw(canvas);
+        canvas.restore();
     }
 
     private static Bitmap getBitmap(Context context, int vectorDrawableId) {
@@ -167,6 +177,10 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         ViewGroup rootView = (ViewGroup) activity.getWindow().getDecorView();
         rootView.addView(this, lp);
+    }
+
+    private float getTextDrawHeight(String text) {
+        return (mTextPaint.measureText(text) / mTextWidth) * mPreTextLineHeight;
     }
 
     private float getSafeDrawPosition(float position) {

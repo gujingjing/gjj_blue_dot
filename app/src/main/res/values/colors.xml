@@ -21,4 +21,8 @@
     <color name="colorProgress">#ffffbb33</color>
     <color name="colorRed">#ffffbb33</color>
     <color name="colorProgressDefault">#FFD7D7D7</color>
+    <!--  light  -->
+    <color name="hight_light_background">#90000000</color>
+    <color name="hight_light_color">#fff</color>
+
 </resources>
