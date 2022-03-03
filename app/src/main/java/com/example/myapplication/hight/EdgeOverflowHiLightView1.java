@@ -13,9 +13,11 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.text.StaticLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -33,6 +35,8 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
     private float mTargetHeight;
     private int mLayerCount;
     private Xfermode mXfermode;
+    private int mRadio;
+    private int mTextSize;
 
     private Paint mPaint;
 
@@ -57,11 +61,16 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         mPaint.setAntiAlias(true);
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setStyle(Paint.Style.FILL);
-        mTextPaint.setTextSize(20);
+        mTextPaint.setTextSize(getResources().getDimensionPixelSize(R.dimen.hight_text_size));
+        mTextPaint.setColor(Color.WHITE);
+        Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+        mTextPaint.setTypeface(font);
         mTextPaint.setAntiAlias(true);
         mBitmapPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBitmapPaint.setAntiAlias(true);
         mXfermode = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+
+        mRadio = getContext().getResources().getDimensionPixelSize(R.dimen.hight_padding) * 2;
     }
 
     public void setTargetRect(Rect rect) {
@@ -77,7 +86,7 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
         Log.e(TAG, "onDraw mTargetWidth:" + mTargetWidth + ",mTargetHeight:" + mTargetHeight);
         if (mTargetWidth == 0 || mTargetHeight == 0)
             return;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mLayerCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
         } else {
             mLayerCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
@@ -89,27 +98,53 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
 
         Log.e(TAG, "onDraw mTargetRect-left;" + mTargetRect.left + ",top:" + mTargetRect.top +
                 ",rrigt;" + mTargetRect.right + ",bottom" + mTargetRect.bottom);
+
         mPaint.setColor(Color.WHITE);
         mPaint.setXfermode(mXfermode);
-        canvas.drawRoundRect(mTargetRect, 0, 0, mPaint);
+        canvas.drawRoundRect(mTargetRect, mRadio, mRadio, mPaint);
 
         drawTips1(canvas);
+        drawTips2(canvas);
 
         canvas.restoreToCount(mLayerCount);
     }
 
     private void drawTips1(Canvas canvas) {
-//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.left_arrow);
-//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
         Bitmap bitmap = getBitmap(getContext(), R.drawable.right_arrow);
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        int padding = 20;
-        canvas.drawBitmap(bitmap, mTargetRect.right - padding, mTargetRect.top - height, mBitmapPaint);
+        int bitmapWidth = bitmap.getWidth();
+        int bitmapHeight = bitmap.getHeight();
+        int imagePadding = getResources().getDimensionPixelOffset(R.dimen.hight_image_padding);
+        int imageMargin = getResources().getDimensionPixelOffset(R.dimen.hight_image_margin);
+        int textPadding = getResources().getDimensionPixelOffset(R.dimen.hight_text_image_padding);
+        float bitmapLeftPosition = mTargetRect.right - imagePadding - mRadio;
+        float bitmapTopPosition = mTargetRect.top - bitmapHeight - imageMargin;
+
+        canvas.drawBitmap(bitmap, bitmapLeftPosition, bitmapTopPosition, mBitmapPaint);
         // draw text
-        String text = "test text";
+        String text = "Download page has";
+        String text1 = "been moved here.";
         float textWidth = mTextPaint.measureText(text);
-        canvas.drawText(text, mTargetRect.right - padding - textWidth / 2, mTargetRect.top - height, mTextPaint);
+        canvas.drawText(text, getSafeDrawPosition(bitmapLeftPosition - textWidth / 2),
+                getSafeDrawPosition(bitmapTopPosition - textPadding), mTextPaint);
+//        canvas.drawText(text1, mTargetRect.right - textWidth / 2 - width / 2 - padding, mTargetRect.top - height - textPadding, mTextPaint);
+    }
+
+    private void drawTips2(Canvas canvas) {
+        Bitmap bitmap = getBitmap(getContext(), R.drawable.left_arrow);
+        int bitmapWidth = bitmap.getWidth();
+        int bitmapHeight = bitmap.getHeight();
+        int imagePadding = getResources().getDimensionPixelOffset(R.dimen.hight_image_padding);
+        int imageMargin = getResources().getDimensionPixelOffset(R.dimen.hight_image_margin);
+        int textPadding = getResources().getDimensionPixelOffset(R.dimen.hight_text_image_padding);
+        float bitmapLeftPosition = mTargetRect.left - bitmapWidth - imageMargin;
+        float bitmapTopPosition = mTargetRect.top - bitmapHeight + imagePadding + mRadio;
+        canvas.drawBitmap(bitmap, bitmapLeftPosition, bitmapTopPosition, mBitmapPaint);
+        // draw text
+        String text = "Add to collection has";
+        String text1 = "been moved here.";
+        float textWidth = mTextPaint.measureText(text);
+        canvas.drawText(text, getSafeDrawPosition(bitmapLeftPosition - textWidth / 2),
+                getSafeDrawPosition(bitmapTopPosition - textPadding), mTextPaint);
     }
 
     private static Bitmap getBitmap(Context context, int vectorDrawableId) {
@@ -132,5 +167,15 @@ public class EdgeOverflowHiLightView1 extends RelativeLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         ViewGroup rootView = (ViewGroup) activity.getWindow().getDecorView();
         rootView.addView(this, lp);
+    }
+
+    private float getSafeDrawPosition(float position) {
+        if (position < 0) {
+            return 0;
+        } else if (position > getMeasuredWidth()) {
+            return getMeasuredWidth();
+        } else {
+            return position;
+        }
     }
 }

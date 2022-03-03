@@ -43,6 +43,15 @@
             android:background="@color/teal_200"
             android:text="test 4" />
 
+        <TextView
+            android:id="@+id/test5"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@color/new_item_indication_dot_text_color"
+            android:text="test 5" />
+
+
     </LinearLayout>
 
     <com.example.myapplication.hight.UserHintView

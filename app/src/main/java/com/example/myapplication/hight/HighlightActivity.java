@@ -1,5 +1,6 @@
 package com.example.myapplication.hight;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,8 +18,10 @@ public class HighlightActivity extends Activity {
 
     private View test2;
     private View test3;
+    private View test4;
     private UserHintView hintView;
-    private EdgeOverflowHiLightView edgeOverflowHiLightView;
+    //    private EdgeOverflowHiLightView edgeOverflowHiLightView;
+    private EdgeOverflowHiLightView1 edgeOverflowHiLightView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,19 +29,28 @@ public class HighlightActivity extends Activity {
         setContentView(R.layout.activity_hight_test);
         test2 = findViewById(R.id.test2);
         test3 = findViewById(R.id.test3);
+        test4 = findViewById(R.id.test4);
         hintView = findViewById(R.id.hintView);
 //        edgeOverflowHiLightView = findViewById(R.id.edgeOverflowHiLightView);
-        hintView.post(new Runnable() {
-            @Override
-            public void run() {
+        hintView.post(() -> {
 //                setHint();
-                Activity activity = HighlightActivity.this;
-                EdgeOverflowHiLightView1 edgeOverflowHiLightView = new EdgeOverflowHiLightView1(activity);
-                int[] loc = new int[2];
-                View view = getWindow().getDecorView();
-                view.getLocationInWindow(loc);
-                edgeOverflowHiLightView.setTargetRect(getViewAbsRect(test3, loc[0], loc[1]));
-                edgeOverflowHiLightView.show(activity);
+            Activity activity = HighlightActivity.this;
+            edgeOverflowHiLightView = new EdgeOverflowHiLightView1(activity);
+            int[] loc = new int[2];
+            View view = getWindow().getDecorView();
+            view.getLocationInWindow(loc);
+            Rect targetRect = new Rect();
+            int padding = getResources().getDimensionPixelSize(R.dimen.hight_padding);
+            Rect rr1 = getViewAbsRect(test3, loc[0], loc[1]);
+            Rect rr2 = getViewAbsRect(test4, loc[0], loc[1]);
+            targetRect.left = rr1.left - padding;
+            targetRect.top = rr1.top - padding;
+            targetRect.right = rr2.right + padding;
+            targetRect.bottom = rr2.bottom + padding;
+
+            edgeOverflowHiLightView.setTargetRect(targetRect);
+            edgeOverflowHiLightView.show(activity);
+            startAnim();
 
 //                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
 //                        ViewGroup.LayoutParams.MATCH_PARENT);
@@ -46,8 +58,13 @@ public class HighlightActivity extends Activity {
 //                LinearLayout testView = new LinearLayout(activity);
 //                testView.setBackgroundResource(R.color.colorProgress);
 //                rootView.addView(testView, lp);
-            }
         });
+    }
+
+    public void startAnim() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(edgeOverflowHiLightView, "alpha", 0, 1.0f);
+        animator.setDuration(500);
+        animator.start();
     }
 
 
